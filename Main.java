@@ -17,7 +17,7 @@ public class Main {
      * graph1.addEdge(2, 1);
      */
 
-    Graph graph1 = new Graph(7);
+    GraphGreedy graph1 = new GraphGreedy(7);
     graph1.addEdge(0, 1);
     graph1.addEdge(0, 4);
     graph1.addEdge(1, 2);

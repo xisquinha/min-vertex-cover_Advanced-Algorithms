@@ -4,7 +4,7 @@ import java.util.Map;
 
 public class GreedyMaxDegree {
 
-  public ArrayList<Integer> greedyMaxDegree(Graph graph) {
+  public ArrayList<Integer> greedyMaxDegree(GraphGreedy graph) {
     ArrayList<Integer> cover = new ArrayList<>();
 
     Map<Integer, List<Integer>> adjacencyList = graph.getAdjacencyList();

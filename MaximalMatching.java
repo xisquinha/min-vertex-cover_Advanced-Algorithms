@@ -22,7 +22,7 @@ public class MaximalMatching {
    * @param graph
    * @return a list with the vertices in the cover
    */
-  public ArrayList<Integer> findMaxMatching(Graph graph) {
+  public ArrayList<Integer> findMaxMatching(GraphMatching graph) {
     ArrayList<Integer> M = new ArrayList<>();
 
     List<Edge> edges = graph.getEdges();
