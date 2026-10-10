@@ -1,6 +1,4 @@
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 /**
  * This class implements the algorithm of Maximal Matchin using a Vertex Cover
@@ -12,20 +10,20 @@ public class MaximalMatching {
   /**
    * The function findMaxMatching calculates a cover for a giver graph.
    * First, a random edge is selected from a list of edges in the graph. The two
-   * vertices adjecents to the edge are added to the cover if neither of them are
+   * vertices adjacent to the edge are added to the cover if neither of them are
    * already in it.
    * After that verification the edge is removed from the list.
    * 
    * Then another random edge is selected and the loop is repeated until no more
    * edges are left in the list.
    * 
-   * @param graph
+   * @param graph - the graph whose vertex cover will be calculated
    * @return a list with the vertices in the cover
    */
   public ArrayList<Integer> findMaxMatching(GraphMatching graph) {
-    ArrayList<Integer> M = new ArrayList<>();
+    Set<Integer> M = new HashSet<>();
 
-    List<Edge> edges = graph.getEdges();
+    List<Edge> edges = new ArrayList<>(graph.getEdges());
 
     while (!edges.isEmpty()) {
       long seed = System.nanoTime();
@@ -40,6 +38,6 @@ public class MaximalMatching {
       edges.remove(e);
     }
 
-    return M;
+    return new ArrayList<>(M);
   }
 }
