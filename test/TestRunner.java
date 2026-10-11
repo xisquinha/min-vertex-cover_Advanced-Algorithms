@@ -216,14 +216,13 @@ public class TestRunner {
     }
 
     /**
-     * The Layered Bipartite Graph is only of the few graphs that is adversial to
+     * The Layered Bipartite Graph is one of the few graphs that is adversial to
      * the greedy max degree algorithm.
      * The vertices in the graph are divided in two groups (U, V), where U has k
      * vertices.
-     * V is split into layers 1, 2, ..., k. Layer i has k/i vertices, each with
-     * degree i. Each vertex is only connected to vertices in the group U.
-     * The vertices in group V are connected only to vertices in group U and
-     * vice-versa.
+     * V is split into layers 1, 2, ..., k. Layer i has floor(k/i) vertices, each
+     * one with degree i. The vertices in group V are connected only to vertices in
+     * group U and vice-versa.
      * 
      * @param V  - vertices in total
      * @param g1 - graph for the maximal matching algorithm
@@ -239,8 +238,7 @@ public class TestRunner {
         }
 
         // U = {0, ..., k-1}, optimal cover = k
-        // V = {k, ..., V-1}, vertices of layer i have degree i and floor(k/i) adjacency
-        // vertices
+        // V = {k, ..., V-1}, vertices of layer i have degree i and floor(k/i) vertices
         int nextV = k; // next V vertex to be created
 
         // looping the layers
@@ -263,7 +261,7 @@ public class TestRunner {
     }
 
     /**
-     * This function calculate how many vertices there will be in total in a
+     * This function calculates how many vertices there will be in total in a
      * layered bipartite graph giving the number of vertices in the U group
      * 
      * @param k - number of vertices in the U group
@@ -272,7 +270,8 @@ public class TestRunner {
     private int layeredTotal(int k) {
         int total = k; // vertices in U group
 
-        // the layer i of the V side has floor(k / i) vertices, so we add them in
+        // the layer i of the V group has floor(k / i) vertices, so we add them in until
+        // we go through all layers
         for (int i = 1; i <= k; i++)
             total += k / i;
         return total;
