@@ -23,37 +23,19 @@ public class MaximalMatching {
    * @return a list with the vertices in the cover
    */
   public ArrayList<Integer> findMaxMatching(GraphMatching graph) {
-    Set<Integer> cover = new HashSet<>();
+    Set<Integer> M = new HashSet<>();
 
     List<Edge> edges = new ArrayList<>(graph.getEdges());
 
-    while (!edges.isEmpty()) {
-      long seed = System.nanoTime();
-      Random rand = new Random(seed);
-      Edge e = edges.get(rand.nextInt(edges.size()));
+    Collections.shuffle(edges);
 
-      if (!cover.contains(e.vertex1) && !cover.contains(e.vertex2)) {
-        cover.add(e.vertex1);
-        cover.add(e.vertex2);
-
-        removeIncidentEdges(edges, e);
-
-      } else {
-        edges.remove(e);
+    for (Edge e : edges) {
+      if (!M.contains(e.vertex1) && !M.contains(e.vertex2)) {
+        M.add(e.vertex1);
+        M.add(e.vertex2);
       }
     }
 
-    return new ArrayList<>(cover);
+    return new ArrayList<>(M);
   }
-
-  private void removeIncidentEdges(List<Edge> edges, Edge selected) {
-
-    edges.removeIf(edge ->
-            edge.vertex1 == selected.vertex1 ||
-                    edge.vertex2 == selected.vertex1 ||
-                    edge.vertex1 == selected.vertex2 ||
-                    edge.vertex2 == selected.vertex2
-    );
-  }
-
 }

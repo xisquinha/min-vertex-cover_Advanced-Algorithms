@@ -2,53 +2,58 @@ package algorithms;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 public class GreedyMaxDegree {
 
   public ArrayList<Integer> greedyMaxDegree(GraphGreedy graph) {
     ArrayList<Integer> cover = new ArrayList<>();
 
-    GraphGreedy graphCopy = graph.copy();
-    Map<Integer, List<Integer>> adjacencyList = graphCopy.getAdjacencyList();
+    int numVertices = graph.getNumVertices();
+    List<Edge> edges = graph.getEdges();
 
-    while (!adjacencyList.isEmpty()) {
+    int[] currentDegrees = graph.getDegreesCopy();
+    boolean[] inCover = new boolean[numVertices];
 
-      int[] max = maxDegree(adjacencyList);
-      int maxDegreeVer = max[0];
+    while (true) {
+      int[] max = maxDegree(numVertices, inCover, currentDegrees);
+      int maxVertex = max[0];
+      int maxDegree = max[1];
 
-      if (max[1] == 0) {
+      if (maxVertex == -1 || maxDegree == 0) {
         break;
       }
-      cover.add(maxDegreeVer);
 
-      removeEdges(maxDegreeVer, adjacencyList);
-      adjacencyList.remove((Object) maxDegreeVer);
+      cover.add(maxVertex);
+      inCover[maxVertex] = true;
+      currentDegrees[maxVertex] = 0;
+
+      updateNeighborsDegree(edges, maxVertex, inCover, currentDegrees);
     }
+
     return cover;
   }
 
-  public int[] maxDegree(Map<Integer, List<Integer>> adjacencyList) {
+  private int[] maxDegree(int numVertices, boolean[] inCover, int[] currentDegrees) {
 
-    int max = 0;
-    int maxVertex = 0;
+    int maxVertex = -1;
+    int maxDegree = 0;
 
-    for (Integer v : adjacencyList.keySet()) {
-
-      int degree = adjacencyList.get(v).size();
-      if (degree > max) {
-        max = degree;
-        maxVertex = v;
+    for (int i = 0; i < numVertices; i++) {
+      if (!inCover[i] && currentDegrees[i] > maxDegree) {
+        maxDegree = currentDegrees[i];
+        maxVertex = i;
       }
     }
-    return new int[] { maxVertex, max };
+    return new int[] { maxVertex, maxDegree };
   }
 
-  public void removeEdges(int vertex, Map<Integer, List<Integer>> adjacencyList) {
-    List<Integer> adjacencyVertices = adjacencyList.get(vertex);
-
-    for (int v : adjacencyVertices) {
-      adjacencyList.get(v).remove(((Object) vertex));
+  private void updateNeighborsDegree(List<Edge> edges, int maxVertex, boolean[] inCover, int[] currentDegrees) {
+    for (Edge e : edges) {
+      if (e.vertex1 == maxVertex && !inCover[e.vertex2]) {
+        currentDegrees[e.vertex2]--;
+      } else if (e.vertex2 == maxVertex && !inCover[e.vertex1]) {
+        currentDegrees[e.vertex1]--;
+      }
     }
   }
 }

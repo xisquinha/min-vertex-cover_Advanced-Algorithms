@@ -15,20 +15,19 @@ public class TestRunner {
         this.repetitions = repetitions;
     }
 
-
     private TestResult runMaximalMatching(GraphMatching graph, MaximalMatching algorithm) {
         long totalTime = 0;
         long totalCover = 0;
 
         System.out.println("== Maximal Matching ==");
 
-        for(int i = 0; i < repetitions; i++) {
+        for (int i = 0; i < repetitions; i++) {
 
             long start = System.nanoTime();
             ArrayList<Integer> cover = algorithm.findMaxMatching(graph);
             long elapsed = System.nanoTime() - start;
 
-            System.out.printf("Run %2d -> Cover: %-5d | Tempo: %.3f ms%n", i+1, cover.size(), elapsed / 1000000.0);
+            System.out.printf("Run %2d -> Cover: %-5d | Tempo: %.3f ms%n", i + 1, cover.size(), elapsed / 1000000.0);
 
             totalTime += elapsed;
             totalCover += cover.size();
@@ -36,8 +35,7 @@ public class TestRunner {
 
         return new TestResult(
                 (double) totalCover / repetitions,
-                (double) totalTime / repetitions / 1000000.0
-        );
+                (double) totalTime / repetitions / 1000000.0);
     }
 
     private TestResult runGreedyMaxDegree(GraphGreedy graph, GreedyMaxDegree algorithm) {
@@ -46,13 +44,13 @@ public class TestRunner {
 
         System.out.println("== Greedy Max-Degree ==");
 
-        for(int i = 0; i < repetitions; i++) {
+        for (int i = 0; i < repetitions; i++) {
 
             long start = System.nanoTime();
             ArrayList<Integer> cover = algorithm.greedyMaxDegree(graph);
             long elapsed = System.nanoTime() - start;
 
-            System.out.printf("Run %2d -> Cover: %-5d | Tempo: %.3f ms%n", i+1, cover.size(), elapsed / 1000000.0);
+            System.out.printf("Run %2d -> Cover: %-5d | Tempo: %.3f ms%n", i + 1, cover.size(), elapsed / 1000000.0);
 
             totalTime += elapsed;
             totalCover += cover.size();
@@ -60,17 +58,15 @@ public class TestRunner {
 
         return new TestResult(
                 (double) totalCover / repetitions,
-                (double) totalTime / repetitions / 1000000.0
-        );
+                (double) totalTime / repetitions / 1000000.0);
     }
-
 
     public void runAllTests() {
         MaximalMatching maximalAlgo = new MaximalMatching();
         GreedyMaxDegree greedyAlgo = new GreedyMaxDegree();
 
         // Variamos o tamanho dos testes: Pequeno, Médio, Grande
-        int[] instanceSizes = {100, 1000, 5000};
+        int[] instanceSizes = { 100, 1000, 5000 };
 
         System.out.println("================================================================================");
         System.out.println("                        INÍCIO DOS TESTES EXPERIMENTAIS                          ");
@@ -143,7 +139,17 @@ public class TestRunner {
         System.out.println("\n--------------------------------------------------------------------------------");
         System.out.println("[FAMÍLIA 4] GRAFO BIPARTIDO EM CAMADAS");
         System.out.println("--------------------------------------------------------------------------------");
-        // TODO: Implementar testes para a família bipartida do pior caso
+
+        for (int V : instanceSizes) {
+            GraphMatching gMatchingBi = new GraphMatching();
+            GraphGreedy gGreedyBi = new GraphGreedy(V);
+            generateLayeredBipartiteGraph(V, gMatchingBi, gGreedyBi);
+
+            executeAndPrint("Grafo Bipartido em Camadas (V=" + V + ", E=" + (V - 1) + ")",
+                    gMatchingBi, gGreedyBi, maximalAlgo, greedyAlgo);
+
+        }
+
         System.out.println("-> Testes pendentes de implementação (TODO)\n");
 
         System.out.println("================================================================================");
@@ -152,7 +158,8 @@ public class TestRunner {
     }
 
     // Auxiliar: Executa os algoritmos e formata a saída de forma legível
-    private void executeAndPrint(String testName, GraphMatching g1, GraphGreedy g2, MaximalMatching maximal, GreedyMaxDegree greedy) {
+    private void executeAndPrint(String testName, GraphMatching g1, GraphGreedy g2, MaximalMatching maximal,
+            GreedyMaxDegree greedy) {
 
         System.out.println(">> Instância: " + testName);
 
@@ -161,13 +168,11 @@ public class TestRunner {
 
         System.out.printf(
                 "   %-20s -> Cobertura média: %.2f | Tempo médio: %.3f ms%n", "Maximal Matching",
-                maximalResult.getAverageCoverSize(), maximalResult.getAverageExecutionTimeMs()
-        );
+                maximalResult.getAverageCoverSize(), maximalResult.getAverageExecutionTimeMs());
 
         System.out.printf(
                 "   %-20s -> Cobertura média: %.2f | Tempo médio: %.3f ms%n", "Greedy Max-Degree",
-                greedyResult.getAverageCoverSize(), greedyResult.getAverageExecutionTimeMs()
-        );
+                greedyResult.getAverageCoverSize(), greedyResult.getAverageExecutionTimeMs());
         System.out.println();
     }
 
@@ -176,17 +181,17 @@ public class TestRunner {
         Random rand = new Random(42);
         Set<Edge> edges = new HashSet<>();
 
-        while(edges.size() < E) {
+        while (edges.size() < E) {
             int v1 = rand.nextInt(V);
             int v2 = rand.nextInt(V);
 
-            if(v1 == v2)
+            if (v1 == v2)
                 continue;
 
             edges.add(new Edge(v1, v2));
         }
 
-        for(Edge e : edges) {
+        for (Edge e : edges) {
             g1.addEdge(e.vertex1, e.vertex2);
             g2.addEdge(e.vertex1, e.vertex2);
         }
@@ -200,27 +205,80 @@ public class TestRunner {
         }
     }
 
-    //TODO: falta fazer a estrela dupla
+    // TODO: falta fazer a estrela dupla
 
     private void generatePathGraph(int V, GraphMatching g1, GraphGreedy g2) {
         // Conectar i com i+1 de 0 até V-1
-        for(int i = 0; i < V-1; i++) {
-            g1.addEdge(i, i+1);
-            g2.addEdge(i, i+1);
+        for (int i = 0; i < V - 1; i++) {
+            g1.addEdge(i, i + 1);
+            g2.addEdge(i, i + 1);
         }
     }
 
-    private void generateBipartiteGraph(int h, GraphMatching g1, GraphGreedy g2) {
-        // TODO: Implementar a estrutura de pior caso do Greedy ainda n sei bem como
-        // mas aqui atencao que o nosso greedy para desempatar faz por ordem númerica,
-        // tipo se o 1 e 2 têm o grau maximo ele usa o do 1
-        // portanto se construirmos o grafo de uma forma vai dar o otimo e de outra nao vai dar
-        // entao é melhor construir das duas formas
+    /**
+     * The Layered Bipartite Graph is only of the few graphs that is adversial to
+     * the greedy max degree algorithm.
+     * The vertices in the graph are divided in two groups (U, V), where U has k
+     * vertices.
+     * V is split into layers 1, 2, ..., k. Layer i has k/i vertices, each with
+     * degree i. Each vertex is only connected to vertices in the group U.
+     * The vertices in group V are connected only to vertices in group U and
+     * vice-versa.
+     * 
+     * @param V  - vertices in total
+     * @param g1 - graph for the maximal matching algorithm
+     * @param g2 - graph for the greedy degree
+     */
+    private void generateLayeredBipartiteGraph(int V, GraphMatching g1, GraphGreedy g2) {
+
+        // largest k such that the construction fits in V vertices
+        int k = 0;
+        // find the k value given the V vertices
+        while (layeredTotal(k + 1) <= V) {
+            k++;
+        }
+
+        // U = {0, ..., k-1}, optimal cover = k
+        // V = {k, ..., V-1}, vertices of layer i have degree i and floor(k/i) adjacency
+        // vertices
+        int nextV = k; // next V vertex to be created
+
+        // looping the layers
+        for (int i = 1; i <= k; i++) {
+            // number of vertices that will be in i layer
+            int verticesInLayer_i = k / i;
+
+            // loop to create vertices for the i layer
+            for (int j = 0; j < verticesInLayer_i; j++) {
+                int v = nextV++;
+
+                // connects the j vertex of layer i to i vertices of U group
+                for (int d = 0; d < i; d++) {
+                    int u = j * i + d;
+                    g1.addEdge(u, v);
+                    g2.addEdge(u, v);
+                }
+            }
+        }
+    }
+
+    /**
+     * This function calculate how many vertices there will be in total in a
+     * layered bipartite graph giving the number of vertices in the U group
+     * 
+     * @param k - number of vertices in the U group
+     * @return total number of vertices
+     */
+    private int layeredTotal(int k) {
+        int total = k; // vertices in U group
+
+        // the layer i of the V side has floor(k / i) vertices, so we add them in
+        for (int i = 1; i <= k; i++)
+            total += k / i;
+        return total;
     }
 
     private void generateCompleteGraph(int n, GraphMatching g1, GraphGreedy g2) {
         // TODO: grafo com n vertices todos ligados uns aos outros
     }
-
-    // TODO: Fazer para as versoes otimizadas tambem para comparar ??
 }
