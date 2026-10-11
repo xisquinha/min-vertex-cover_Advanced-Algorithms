@@ -25,6 +25,19 @@ public class GraphGreedy {
     return adjacencyList.get(v).size();
   }
 
+  public GraphGreedy copy() {
+    GraphGreedy copy = new GraphGreedy(adjacencyList.size());
+
+    for(Integer v : adjacencyList.keySet()) {
+      for(Integer neighbour : adjacencyList.get(v)) {
+        if(v < neighbour) {
+          copy.addEdge(v, neighbour);
+        }
+      }
+    }
+    return copy;
+  }
+
   public Map<Integer, List<Integer>> getAdjacencyList() {
     return adjacencyList;
   }
