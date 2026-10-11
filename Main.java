@@ -1,3 +1,8 @@
+import algorithms.GraphGreedy;
+import algorithms.GreedyMaxDegree;
+import algorithms.MaximalMatching;
+import test.TestRunner;
+
 import java.util.ArrayList;
 
 public class Main {
