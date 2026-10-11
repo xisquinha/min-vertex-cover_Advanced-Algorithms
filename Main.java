@@ -44,7 +44,7 @@ public class Main {
 
 
     // Criar o executor de testes
-    TestRunner runner = new TestRunner();
+    TestRunner runner = new TestRunner(10);
 
     // Correr todos os cenários gerados
     runner.runAllTests();

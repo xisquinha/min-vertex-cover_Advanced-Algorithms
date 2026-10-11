@@ -9,6 +9,62 @@ import java.util.Set;
 
 public class TestRunner {
 
+    private final int repetitions;
+
+    public TestRunner(int repetitions) {
+        this.repetitions = repetitions;
+    }
+
+
+    private TestResult runMaximalMatching(GraphMatching graph, MaximalMatching algorithm) {
+        long totalTime = 0;
+        long totalCover = 0;
+
+        System.out.println("== Maximal Matching ==");
+
+        for(int i = 0; i < repetitions; i++) {
+
+            long start = System.nanoTime();
+            ArrayList<Integer> cover = algorithm.findMaxMatching(graph);
+            long elapsed = System.nanoTime() - start;
+
+            System.out.printf("Run %2d -> Cover: %-5d | Tempo: %.3f ms%n", i+1, cover.size(), elapsed / 1000000.0);
+
+            totalTime += elapsed;
+            totalCover += cover.size();
+        }
+
+        return new TestResult(
+                (double) totalCover / repetitions,
+                (double) totalTime / repetitions / 1000000.0
+        );
+    }
+
+    private TestResult runGreedyMaxDegree(GraphGreedy graph, GreedyMaxDegree algorithm) {
+        long totalTime = 0;
+        long totalCover = 0;
+
+        System.out.println("== Greedy Max-Degree ==");
+
+        for(int i = 0; i < repetitions; i++) {
+
+            long start = System.nanoTime();
+            ArrayList<Integer> cover = algorithm.greedyMaxDegree(graph);
+            long elapsed = System.nanoTime() - start;
+
+            System.out.printf("Run %2d -> Cover: %-5d | Tempo: %.3f ms%n", i+1, cover.size(), elapsed / 1000000.0);
+
+            totalTime += elapsed;
+            totalCover += cover.size();
+        }
+
+        return new TestResult(
+                (double) totalCover / repetitions,
+                (double) totalTime / repetitions / 1000000.0
+        );
+    }
+
+
     public void runAllTests() {
         MaximalMatching maximalAlgo = new MaximalMatching();
         GreedyMaxDegree greedyAlgo = new GreedyMaxDegree();
@@ -17,14 +73,14 @@ public class TestRunner {
         int[] instanceSizes = {100, 1000, 5000};
 
         System.out.println("================================================================================");
-        System.out.println("                   INÍCIO DA SUITE DE TESTES EXPERIMENTAIS                      ");
+        System.out.println("                        INÍCIO DOS TESTES EXPERIMENTAIS                          ");
         System.out.println("================================================================================\n");
 
         // ---------------------------------------------------------------------
         // FAMÍLIA 1: GRAFOS ALEATÓRIOS (ESPARSOS E DENSOS)
         // ---------------------------------------------------------------------
         System.out.println("--------------------------------------------------------------------------------");
-        System.out.println("[FAMÍLIA 1] GRAFOS ALEATÓRIOS (Instâncias de Controlo)");
+        System.out.println("[FAMÍLIA 1] GRAFOS ALEATÓRIOS");
         System.out.println("--------------------------------------------------------------------------------");
 
         for (int V : instanceSizes) {
@@ -96,24 +152,23 @@ public class TestRunner {
     }
 
     // Auxiliar: Executa os algoritmos e formata a saída de forma legível
-    private void executeAndPrint(String testName, GraphMatching g1, GraphGreedy g2,
-                                 MaximalMatching maximal, GreedyMaxDegree greedy) {
+    private void executeAndPrint(String testName, GraphMatching g1, GraphGreedy g2, MaximalMatching maximal, GreedyMaxDegree greedy) {
 
-        // Cronometragem do Maximal Matching
-        long start = System.nanoTime();
-        ArrayList<Integer> coverMaximal = maximal.findMaxMatching(g1);
-        long tempoMaximal = (System.nanoTime() - start) / 1000000;
-
-        // Cronometragem do Greedy Max Degree
-        start = System.nanoTime();
-        ArrayList<Integer> coverGreedy = greedy.greedyMaxDegree(g2);
-        long tempoGreedy = (System.nanoTime() - start) / 1000000;
-
-        // Print Formatado e Visual para Humanos
         System.out.println(">> Instância: " + testName);
-        System.out.printf("   %-20s -> Cobertura: %-5d vértices | Tempo: %d ms\n", "Maximal Matching", coverMaximal.size(), tempoMaximal);
-        System.out.printf("   %-20s -> Cobertura: %-5d vértices | Tempo: %d ms\n", "Greedy Max-Degree", coverGreedy.size(), tempoGreedy);
-        System.out.println("   -----------------------------------------------------------------------------");
+
+        TestResult maximalResult = runMaximalMatching(g1, maximal);
+        TestResult greedyResult = runGreedyMaxDegree(g2, greedy);
+
+        System.out.printf(
+                "   %-20s -> Cobertura média: %.2f | Tempo médio: %.3f ms%n", "Maximal Matching",
+                maximalResult.getAverageCoverSize(), maximalResult.getAverageExecutionTimeMs()
+        );
+
+        System.out.printf(
+                "   %-20s -> Cobertura média: %.2f | Tempo médio: %.3f ms%n", "Greedy Max-Degree",
+                greedyResult.getAverageCoverSize(), greedyResult.getAverageExecutionTimeMs()
+        );
+        System.out.println();
     }
 
     // Grafos Aleatórios com seed fixa
@@ -145,6 +200,8 @@ public class TestRunner {
         }
     }
 
+    //TODO: falta fazer a estrela dupla
+
     private void generatePathGraph(int V, GraphMatching g1, GraphGreedy g2) {
         // Conectar i com i+1 de 0 até V-1
         for(int i = 0; i < V-1; i++) {
@@ -161,8 +218,9 @@ public class TestRunner {
         // entao é melhor construir das duas formas
     }
 
-    // TODO: acho que é importante parra o maximal correr varias vezes os testes porque como ele
-    //  seleciona arestas random o resultado pode variar
+    private void generateCompleteGraph(int n, GraphMatching g1, GraphGreedy g2) {
+        // TODO: grafo com n vertices todos ligados uns aos outros
+    }
 
     // TODO: Fazer para as versoes otimizadas tambem para comparar ??
 }
