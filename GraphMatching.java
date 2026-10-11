@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class GraphMatching {
   private List<Edge> edges;
@@ -38,5 +39,29 @@ class Edge {
   @Override
   public String toString() {
     return "(" + vertex1 + ", " + vertex2 + ")";
+  }
+
+  @Override
+  public boolean equals(Object obj) {
+
+    if(this == obj)
+      return true;
+
+    if(obj == null || getClass() != obj.getClass())
+      return false;
+
+    Edge other = (Edge) obj;
+
+    return (vertex1 == other.vertex1 && vertex2 == other.vertex2)
+            || (vertex1 == other.vertex2 && vertex2 == other.vertex1);
+  }
+
+  @Override
+  public int hashCode() {
+
+    int min = Math.min(vertex1, vertex2);
+    int max = Math.max(vertex1, vertex2);
+
+    return Objects.hash(min, max);
   }
 }

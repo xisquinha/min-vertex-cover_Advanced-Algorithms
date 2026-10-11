@@ -1,5 +1,7 @@
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Random;
+import java.util.Set;
 
 public class TestRunner {
 
@@ -113,15 +115,21 @@ public class TestRunner {
     // Grafos Aleatórios com seed fixa
     private void generateRandomGraph(int V, int E, GraphMatching g1, GraphGreedy g2) {
         Random rand = new Random(42);
-        int arestasCriadas = 0;
-        while (arestasCriadas < E) {
+        Set<Edge> edges = new HashSet<>();
+
+        while(edges.size() < E) {
             int v1 = rand.nextInt(V);
             int v2 = rand.nextInt(V);
-            if (v1 != v2) {
-                g1.addEdge(v1, v2);
-                g2.addEdge(v1, v2);
-                arestasCriadas++;
-            }
+
+            if(v1 == v2)
+                continue;
+
+            edges.add(new Edge(v1, v2));
+        }
+
+        for(Edge e : edges) {
+            g1.addEdge(e.vertex1, e.vertex2);
+            g2.addEdge(e.vertex1, e.vertex2);
         }
     }
 
