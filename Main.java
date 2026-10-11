@@ -9,7 +9,7 @@ public class Main {
     /*
      * System.out.println("Graph 1");
      * Graph graph1 = new Graph();
-     * 
+     *
      * graph1.addEdge(0, 1);
      * graph1.addEdge(0, 3);
      * graph1.addEdge(0, 2);
@@ -36,5 +36,12 @@ public class Main {
     }
     // MinimumWeightedVertexCover.findMinimumWeightedVertexCoverApprox(graph1,
     // weights1, vertexNames1);
+
+
+    // Criar o executor de testes
+    TestRunner runner = new TestRunner();
+
+    // Correr todos os cenários gerados
+    runner.runAllTests();
   }
 }
