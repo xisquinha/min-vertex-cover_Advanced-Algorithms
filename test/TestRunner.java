@@ -68,6 +68,10 @@ public class TestRunner {
         // Variamos o tamanho dos testes: Pequeno, Médio, Grande
         int[] instanceSizes = { 100, 1000, 5000 };
 
+        int[][] instacesDoubleStar_A_B = { { 0, 0 }, { 0, 5 }, { 10, 10 }, { 1, 50 }, { 500, 500 } };
+
+        int[] instancesLayers = { 5, 100, 1000 };
+
         System.out.println("================================================================================");
         System.out.println("                        INÍCIO DOS TESTES EXPERIMENTAIS                          ");
         System.out.println("================================================================================\n");
@@ -105,7 +109,7 @@ public class TestRunner {
         // FAMÍLIA 2: GRAFO EM ESTRELA (Pior caso do Maximal, Melhor do Greedy)
         // ---------------------------------------------------------------------
         System.out.println("\n--------------------------------------------------------------------------------");
-        System.out.println("[FAMÍLIA 2] GRAFO EM ESTRELA / DUPLA ESTRELA");
+        System.out.println("[FAMÍLIA 2] GRAFO EM ESTRELA");
         System.out.println("--------------------------------------------------------------------------------");
 
         for (int V : instanceSizes) {
@@ -140,21 +144,76 @@ public class TestRunner {
         System.out.println("[FAMÍLIA 4] GRAFO BIPARTIDO EM CAMADAS");
         System.out.println("--------------------------------------------------------------------------------");
 
-        for (int V : instanceSizes) {
+        for (int h : instancesLayers) {
+            int totalV = layeredBipartiteVertexCount(h);
+            int totalE = layeredBipartiteEdgeCount(h);
             GraphMatching gMatchingBi = new GraphMatching();
-            GraphGreedy gGreedyBi = new GraphGreedy(V);
-            generateLayeredBipartiteGraph(V, gMatchingBi, gGreedyBi);
+            GraphGreedy gGreedyBi = new GraphGreedy(totalV);
+            generateLayeredBipartiteGraph(h, gMatchingBi, gGreedyBi);
 
-            executeAndPrint("Grafo Bipartido em Camadas (V=" + V + ", E=" + (V - 1) + ")",
+            executeAndPrint("Grafo Bipartido em Camadas (total Vert.=" + totalV + ", E=" + totalE +
+                    ", nLayers =" + h + ", U=" + h + ", V=" + (totalV - h) + ")",
                     gMatchingBi, gGreedyBi, maximalAlgo, greedyAlgo);
 
         }
 
-        System.out.println("-> Testes pendentes de implementação (TODO)\n");
+        // ---------------------------------------------------------------------
+        // FAMÍLIA 5: GRAFO COMPLETO
+        // ---------------------------------------------------------------------
+
+        System.out.println("\n--------------------------------------------------------------------------------");
+        System.out.println("[FAMÍLIA 5] GRAFO COMPLETO");
+        System.out.println("--------------------------------------------------------------------------------");
+
+        for (int V : instanceSizes) {
+            GraphMatching gMatchingComplete = new GraphMatching();
+            GraphGreedy gGreedyComplete = new GraphGreedy(V);
+            generateCompleteGraph(V, gMatchingComplete, gGreedyComplete);
+
+            executeAndPrint("Grafo Completo (V=" + V + ", E=" + (V * (V - 1) / 2) + ")",
+                    gMatchingComplete, gGreedyComplete, maximalAlgo, greedyAlgo);
+
+        }
+
+        // ---------------------------------------------------------------------
+        // FAMÍLIA 6: GRAFO DUPLA ESTRELA
+        // ---------------------------------------------------------------------
+
+        System.out.println("\n--------------------------------------------------------------------------------");
+        System.out.println("[FAMÍLIA 6] GRAFO DUPLA ESTRELA");
+        System.out.println("--------------------------------------------------------------------------------");
+
+        for (int[] a_b : instacesDoubleStar_A_B) {
+            int a = a_b[0];
+            int b = a_b[1];
+            int V = a + b + 2;
+
+            GraphMatching gMatchingDubStar = new GraphMatching();
+            GraphGreedy gGreedyDubStar = new GraphGreedy(V);
+            generateDoubleStarGraph(a, b, gMatchingDubStar, gGreedyDubStar);
+
+            executeAndPrint("Grafo Dupla Estrela (V=" + V + ", E=" + (V - 1) + "A=" + a + ", B=" + b + ")",
+                    gMatchingDubStar, gGreedyDubStar, maximalAlgo, greedyAlgo);
+
+        }
 
         System.out.println("================================================================================");
         System.out.println("                   FIM DA SUITE DE TESTES EXPERIMENTAIS                        ");
         System.out.println("================================================================================");
+    }
+
+    /**
+     * Auxilir function to calculate the total number of
+     * 
+     * @param h
+     * @return
+     */
+    private int layeredBipartiteEdgeCount(int h) {
+        int e = 0;
+        for (int i = 1; i <= h; i++) {
+            e += i * (h / i);
+        }
+        return e;
     }
 
     // Auxiliar: Executa os algoritmos e formata a saída de forma legível
@@ -205,7 +264,34 @@ public class TestRunner {
         }
     }
 
-    // TODO: falta fazer a estrela dupla
+    /**
+     * A Double Star Graph is a graph that is made of two adjacent "center"
+     * vertices, where each center vertex has its own set of vertices leaves.
+     * The vertices in the center will have degree nº of leaves (in the respective
+     * side) + 1 and each leave only has degree 1.
+     * 
+     * The optimal solution will be always 2.
+     * 
+     * @param a  - number of leaves in the U side
+     * @param b  - number of leaver in the V side
+     * @param g1 - graph for the maximal matching algorithm
+     * @param g2 - graph for the greedy degree
+     */
+    private void generateDoubleStarGraph(int a, int b, GraphMatching g1, GraphGreedy g2) {
+
+        g1.addEdge(0, 1);
+        g2.addEdge(0, 1);
+
+        for (int i = 0; i < a; i++) {
+            g1.addEdge(0, 2 + i);
+            g2.addEdge(0, 2 + i);
+        }
+
+        for (int i = 0; i < b; i++) {
+            g1.addEdge(1, 2 + a + i);
+            g2.addEdge(1, 2 + a + i);
+        }
+    }
 
     private void generatePathGraph(int V, GraphMatching g1, GraphGreedy g2) {
         // Conectar i com i+1 de 0 até V-1
@@ -216,7 +302,7 @@ public class TestRunner {
     }
 
     /**
-     * The Layered Bipartite Graph is one of the few graphs that is adversial to
+     * A Layered Bipartite Graph is one of the few graphs that is adversial to
      * the greedy max degree algorithm.
      * The vertices in the graph are divided in two groups (U, V), where U has k
      * vertices.
@@ -224,27 +310,20 @@ public class TestRunner {
      * one with degree i. The vertices in group V are connected only to vertices in
      * group U and vice-versa.
      * 
-     * @param V  - vertices in total
+     * @param h  - number of layers
      * @param g1 - graph for the maximal matching algorithm
      * @param g2 - graph for the greedy degree
      */
-    private void generateLayeredBipartiteGraph(int V, GraphMatching g1, GraphGreedy g2) {
-
-        // largest k such that the construction fits in V vertices
-        int k = 0;
-        // find the k value given the V vertices
-        while (layeredTotal(k + 1) <= V) {
-            k++;
-        }
+    private void generateLayeredBipartiteGraph(int h, GraphMatching g1, GraphGreedy g2) {
 
         // U = {0, ..., k-1}, optimal cover = k
         // V = {k, ..., V-1}, vertices of layer i have degree i and floor(k/i) vertices
-        int nextV = k; // next V vertex to be created
+        int nextV = h; // next V vertex to be created
 
         // looping the layers
-        for (int i = 1; i <= k; i++) {
+        for (int i = 1; i <= h; i++) {
             // number of vertices that will be in i layer
-            int verticesInLayer_i = k / i;
+            int verticesInLayer_i = h / i;
 
             // loop to create vertices for the i layer
             for (int j = 0; j < verticesInLayer_i; j++) {
@@ -260,24 +339,29 @@ public class TestRunner {
         }
     }
 
-    /**
-     * This function calculates how many vertices there will be in total in a
-     * layered bipartite graph giving the number of vertices in the U group
-     * 
-     * @param k - number of vertices in the U group
-     * @return total number of vertices
-     */
-    private int layeredTotal(int k) {
-        int total = k; // vertices in U group
-
-        // the layer i of the V group has floor(k / i) vertices, so we add them in until
-        // we go through all layers
-        for (int i = 1; i <= k; i++)
-            total += k / i;
+    private int layeredBipartiteVertexCount(int h) {
+        int total = h;
+        for (int i = 1; i <= h; i++) {
+            total += h / i;
+        }
         return total;
     }
 
+    /**
+     * A Complete Graph is a graph where every vertex is connected to all the
+     * other vertices, by exactly one edge.
+     * 
+     * @param V  - total number of vertices
+     * @param g1 - graph for the maximal matching algorithm
+     * @param g2 - graph for the greedy degree
+     */
     private void generateCompleteGraph(int n, GraphMatching g1, GraphGreedy g2) {
-        // TODO: grafo com n vertices todos ligados uns aos outros
+
+        for (int i = 0; i < n; i++) {
+            for (int t = i + 1; t < n; t++) {
+                g1.addEdge(i, t);
+                g2.addEdge(i, t);
+            }
+        }
     }
 }
