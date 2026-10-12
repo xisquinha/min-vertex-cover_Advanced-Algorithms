@@ -7,6 +7,15 @@ import java.util.HashSet;
 import java.util.Random;
 import java.util.Set;
 
+/**
+ * TestRunner
+ * 
+ * The class TestRunner generates a few different types of graphs and test both
+ * the graphs and algorithms that are implemented in the "algorithms" directory.
+ * 
+ * This tests are made with different graph sizes and are repeated n times,
+ * since some algorithms work with randomness.
+ */
 public class TestRunner {
 
     private final int repetitions;
@@ -15,30 +24,84 @@ public class TestRunner {
         this.repetitions = repetitions;
     }
 
-    private TestResult runMaximalMatching(GraphMatching graph, MaximalMatching algorithm) {
-        long totalTime = 0;
-        long totalCover = 0;
+    /*
+     * private TestResult runMaximalMatching(GraphMatching graph, MaximalMatching
+     * algorithm) {
+     * long totalTime = 0;
+     * long totalCover = 0;
+     * 
+     * System.out.println("== Maximal Matching ==");
+     * 
+     * for (int i = 0; i < repetitions; i++) {
+     * 
+     * long start = System.nanoTime(); // beggin the counter
+     * ArrayList<Integer> cover = algorithm.findMaxMatching(graph); // calculate the
+     * solution
+     * long elapsed = System.nanoTime() - start; // calculate the execution time
+     * 
+     * System.out.printf("Run %2d -> Cover: %-5d | Tempo: %.3f ms%n", i + 1,
+     * cover.size(), elapsed / 1000000.0);
+     * 
+     * totalTime += elapsed;
+     * totalCover += cover.size();
+     * }
+     * 
+     * return new TestResult(
+     * (double) totalCover / repetitions,
+     * (double) totalTime / repetitions / 1000000.0);
+     * }
+     *
+     * private TestResult runGreedyMaxDegree(GraphGreedy graph, GreedyMaxDegree
+     * algorithm) {
+     * long totalTime = 0;
+     * long totalCover = 0;
+     * 
+     * System.out.println("== Greedy Max-Degree ==");
+     * 
+     * for (int i = 0; i < repetitions; i++) {
+     * 
+     * long start = System.nanoTime();
+     * ArrayList<Integer> cover = algorithm.findGreedyMaxDegree(graph);
+     * long elapsed = System.nanoTime() - start;
+     * 
+     * System.out.printf("Run %2d -> Cover: %-5d | Tempo: %.3f ms%n", i + 1,
+     * cover.size(), elapsed / 1000000.0);
+     * 
+     * totalTime += elapsed;
+     * totalCover += cover.size();
+     * }
+     * 
+     * return new TestResult(
+     * (double) totalCover / repetitions,
+     * (double) totalTime / repetitions / 1000000.0);
+     * }
+     */
 
-        System.out.println("== Maximal Matching ==");
-
-        for (int i = 0; i < repetitions; i++) {
-
-            long start = System.nanoTime();
-            ArrayList<Integer> cover = algorithm.findMaxMatching(graph);
-            long elapsed = System.nanoTime() - start;
-
-            System.out.printf("Run %2d -> Cover: %-5d | Tempo: %.3f ms%n", i + 1, cover.size(), elapsed / 1000000.0);
-
-            totalTime += elapsed;
-            totalCover += cover.size();
-        }
-
-        return new TestResult(
-                (double) totalCover / repetitions,
-                (double) totalTime / repetitions / 1000000.0);
-    }
-
-    private TestResult runGreedyMaxDegree(GraphGreedy graph, GreedyMaxDegree algorithm) {
+    /**
+     * Given a graph and an instance of the respective algorithm, this function
+     * executes the solution "repetitions" times and calculates the average
+     * of the number of vertices in the solution and the average of the time that
+     * it took to execute it.
+     * This "repetitions" number is a variable that's initialized in the contructor
+     * of this class.
+     * 
+     * Since different algorithms work with different characteristics of the graph,
+     * for better cost a class specified for each algorithm is better than a geral
+     * graph.
+     * 
+     * The classes that are being used for the graph are: GraphGreedy and
+     * GraphMatching; and the classes for the algorithms are GreedyMaxDegree
+     * and MaximalMatching.
+     * So if we want to use the maximal mathing algorithm we will use the
+     * correspondent graph, the same logic applies to the greedy maximum-degree
+     * algorithm
+     * 
+     * @param graph     - an instance of the graph (GraphGreedy or Graph Matching)
+     * @param algorithm - an instance of the algorithm (GreedyMaxDegree or
+     *                  MaximalMatching)
+     * @return average of cover size and average of execution time
+     */
+    private TestResult runAlgorithm(Object graph, Object algorithm) {
         long totalTime = 0;
         long totalCover = 0;
 
@@ -46,9 +109,21 @@ public class TestRunner {
 
         for (int i = 0; i < repetitions; i++) {
 
-            long start = System.nanoTime();
-            ArrayList<Integer> cover = algorithm.greedyMaxDegree(graph);
-            long elapsed = System.nanoTime() - start;
+            long start = System.nanoTime(); // start the timer
+            ArrayList<Integer> cover = null;
+
+            // find a solution with the algorithm
+            if (graph instanceof GraphGreedy && algorithm instanceof GreedyMaxDegree) {
+                cover = ((GreedyMaxDegree) algorithm).findGreedyMaxDegree(((GraphGreedy) graph));
+
+            } else if (graph instanceof GraphMatching && algorithm instanceof MaximalMatching) {
+                cover = ((MaximalMatching) algorithm).findMaxMatching(((GraphMatching) graph));
+
+            } else {
+                return null;
+            }
+
+            long elapsed = System.nanoTime() - start; // calculate the execution time
 
             System.out.printf("Run %2d -> Cover: %-5d | Tempo: %.3f ms%n", i + 1, cover.size(), elapsed / 1000000.0);
 
@@ -56,11 +131,19 @@ public class TestRunner {
             totalCover += cover.size();
         }
 
+        // calculates the average for the cover and for the exexution time
         return new TestResult(
                 (double) totalCover / repetitions,
                 (double) totalTime / repetitions / 1000000.0);
     }
 
+    /**
+     * Executes all the tests with different types of graphs and print the results
+     * in the console.
+     * 
+     * Types of graphs: Random Graphs; Star Graph; Path Graph; Layered Bipartite
+     * Graph; Complete Graph; Double Star Graph.
+     */
     public void runAllTests() {
         MaximalMatching maximalAlgo = new MaximalMatching();
         GreedyMaxDegree greedyAlgo = new GreedyMaxDegree();
@@ -203,10 +286,11 @@ public class TestRunner {
     }
 
     /**
-     * Auxilir function to calculate the total number of
+     * Auxilir function to calculate the total number of edges in a layered
+     * bipartire graph
      * 
-     * @param h
-     * @return
+     * @param h - num of layers
+     * @return the number of edges
      */
     private int layeredBipartiteEdgeCount(int h) {
         int e = 0;
@@ -222,8 +306,8 @@ public class TestRunner {
 
         System.out.println(">> Instância: " + testName);
 
-        TestResult maximalResult = runMaximalMatching(g1, maximal);
-        TestResult greedyResult = runGreedyMaxDegree(g2, greedy);
+        TestResult maximalResult = runAlgorithm(g1, maximal);
+        TestResult greedyResult = runAlgorithm(g2, greedy);
 
         System.out.printf(
                 "   %-20s -> Cobertura média: %.2f | Tempo médio: %.3f ms%n", "Maximal Matching",
@@ -251,16 +335,24 @@ public class TestRunner {
         }
 
         for (Edge e : edges) {
-            g1.addEdge(e.vertex1, e.vertex2);
-            g2.addEdge(e.vertex1, e.vertex2);
+            addEdgeToGraphs(g1, g2, e.vertex1, e.vertex2);
         }
     }
 
+    /**
+     * Generates a Star Graph with V total vertices.
+     * A star graph is a graph with one central vertex connected to n leaves (V - 1
+     * in this case) and no other edges. Every leaf is only adjacent to the center.
+     * So every leaf has degree 1 and the center has degree n (V-1).
+     * 
+     * @param V  - total number of vertices
+     * @param g1 - graph for the maximal matching algorithm
+     * @param g2 - graph for the greedy degree
+     */
     private void generateStarGraph(int V, GraphMatching g1, GraphGreedy g2) {
         int center = 0;
         for (int leaf = 1; leaf < V; leaf++) {
-            g1.addEdge(center, leaf);
-            g2.addEdge(center, leaf);
+            addEdgeToGraphs(g1, g2, center, leaf);
         }
     }
 
@@ -279,25 +371,19 @@ public class TestRunner {
      */
     private void generateDoubleStarGraph(int a, int b, GraphMatching g1, GraphGreedy g2) {
 
-        g1.addEdge(0, 1);
-        g2.addEdge(0, 1);
+        addEdgeToGraphs(g1, g2, 0, 1);
 
-        for (int i = 0; i < a; i++) {
-            g1.addEdge(0, 2 + i);
-            g2.addEdge(0, 2 + i);
-        }
+        for (int i = 0; i < a; i++)
+            addEdgeToGraphs(g1, g2, 0, 2 + i);
 
-        for (int i = 0; i < b; i++) {
-            g1.addEdge(1, 2 + a + i);
-            g2.addEdge(1, 2 + a + i);
-        }
+        for (int i = 0; i < b; i++)
+            addEdgeToGraphs(g1, g2, 1, 2 + a + i);
     }
 
     private void generatePathGraph(int V, GraphMatching g1, GraphGreedy g2) {
         // Conectar i com i+1 de 0 até V-1
         for (int i = 0; i < V - 1; i++) {
-            g1.addEdge(i, i + 1);
-            g2.addEdge(i, i + 1);
+            addEdgeToGraphs(g1, g2, i, i + 1);
         }
     }
 
@@ -332,16 +418,23 @@ public class TestRunner {
                 // connects the j vertex of layer i to i vertices of U group
                 for (int d = 0; d < i; d++) {
                     int u = j * i + d;
-                    g1.addEdge(u, v);
-                    g2.addEdge(u, v);
+                    addEdgeToGraphs(g1, g2, u, v);
                 }
             }
         }
     }
 
+    /**
+     * Auxiliar function to calculate the total number of vertices in a layered
+     * bipartite graph, given the number of the layers.
+     * 
+     * @param h - number of layers
+     * @return total number of vertices
+     */
     private int layeredBipartiteVertexCount(int h) {
         int total = h;
         for (int i = 1; i <= h; i++) {
+            // the number of vertices in layer i is floor(nº of layers / i)
             total += h / i;
         }
         return total;
@@ -359,9 +452,22 @@ public class TestRunner {
 
         for (int i = 0; i < n; i++) {
             for (int t = i + 1; t < n; t++) {
-                g1.addEdge(i, t);
-                g2.addEdge(i, t);
+                addEdgeToGraphs(g1, g2, i, t);
             }
         }
+    }
+
+    /**
+     * Auxiliar function to add a edge to both instances of GraphMatching and
+     * GraphGreedy
+     * 
+     * @param g1 - graph for the maximal matching algorithm
+     * @param g2 - graph for the greedy degree
+     * @param v1 - one vertex of the edge
+     * @param v2 - other vertex of the edge
+     */
+    private void addEdgeToGraphs(GraphMatching g1, GraphGreedy g2, int v1, int v2) {
+        g1.addEdge(v1, v2);
+        g2.addEdge(v1, v2);
     }
 }

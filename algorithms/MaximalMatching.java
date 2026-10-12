@@ -11,13 +11,11 @@ public class MaximalMatching {
 
   /**
    * The function findMaxMatching calculates a cover for a giver graph.
-   * First, a random edge is selected from a list of edges in the graph. The two
-   * vertices adjacent to the edge are added to the cover if neither of them are
-   * already in it.
-   * After that verification the edge is removed from the list.
+   * First, the list of edges is sorted in a random order. Then the list is
+   * scanned and if both vertices of an edge are not in the cover, they will
+   * then be added to it.
    * 
-   * Then another random edge is selected and the loop is repeated until no more
-   * edges are left in the list.
+   * This verification is made until we go through all the edge list.
    * 
    * @param graph - the graph whose vertex cover will be calculated
    * @return a list with the vertices in the cover

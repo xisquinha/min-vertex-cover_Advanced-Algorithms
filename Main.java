@@ -31,7 +31,7 @@ public class Main {
     graph1.addEdge(5, 6);
 
     // ArrayList<Integer> M = maxMat.findMaxMatching(graph1);
-    ArrayList<Integer> M = greedyMaxD.greedyMaxDegree(graph1);
+    ArrayList<Integer> M = greedyMaxD.findGreedyMaxDegree(graph1);
 
     for (int i = 0; i < M.size(); i++) {
       System.out.print(M.get(i));

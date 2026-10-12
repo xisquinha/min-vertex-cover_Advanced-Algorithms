@@ -2,6 +2,11 @@ package algorithms;
 
 import java.util.Objects;
 
+/**
+ * This class represents an undirected and unweighted edge between two vertices.
+ * (1, 2) == (2, 1)
+ * Edge
+ */
 public class Edge {
     public int vertex1;
     public int vertex2;
@@ -27,6 +32,8 @@ public class Edge {
 
         Edge other = (Edge) obj;
 
+        // two vertices are equal if theu connect the same pair of vertices in either
+        // direction
         return (vertex1 == other.vertex1 && vertex2 == other.vertex2)
                 || (vertex1 == other.vertex2 && vertex2 == other.vertex1);
     }
