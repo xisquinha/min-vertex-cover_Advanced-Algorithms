@@ -101,11 +101,11 @@ public class TestRunner {
      *                  MaximalMatching)
      * @return average of cover size and average of execution time
      */
-    private TestResult runAlgorithm(Object graph, Object algorithm) {
+    private TestResult runAlgorithm(String algorithmName, Object graph, Object algorithm) {
         long totalTime = 0;
         long totalCover = 0;
 
-        System.out.println("== Greedy Max-Degree ==");
+        System.out.println("==  " + algorithmName + "   ==");
 
         for (int i = 0; i < repetitions; i++) {
 
@@ -275,7 +275,7 @@ public class TestRunner {
             GraphGreedy gGreedyDubStar = new GraphGreedy(V);
             generateDoubleStarGraph(a, b, gMatchingDubStar, gGreedyDubStar);
 
-            executeAndPrint("Grafo Dupla Estrela (V=" + V + ", E=" + (V - 1) + "A=" + a + ", B=" + b + ")",
+            executeAndPrint("Grafo Dupla Estrela (V=" + V + ", E=" + (V - 1) + ", A=" + a + ", B=" + b + ")",
                     gMatchingDubStar, gGreedyDubStar, maximalAlgo, greedyAlgo);
 
         }
@@ -306,8 +306,8 @@ public class TestRunner {
 
         System.out.println(">> Instância: " + testName);
 
-        TestResult maximalResult = runAlgorithm(g1, maximal);
-        TestResult greedyResult = runAlgorithm(g2, greedy);
+        TestResult maximalResult = runAlgorithm("Maximal Matching", g1, maximal);
+        TestResult greedyResult = runAlgorithm("Greedy Max-Degree",g2, greedy);
 
         System.out.printf(
                 "   %-20s -> Cobertura média: %.2f | Tempo médio: %.3f ms%n", "Maximal Matching",
@@ -388,7 +388,7 @@ public class TestRunner {
     }
 
     /**
-     * A Layered Bipartite Graph is one of the few graphs that is adversial to
+     * A Layered Bipartite Graph is one of the few graphs that is adversarial to
      * the greedy max degree algorithm.
      * The vertices in the graph are divided in two groups (U, V), where U has k
      * vertices.
@@ -425,7 +425,7 @@ public class TestRunner {
     }
 
     /**
-     * Auxiliar function to calculate the total number of vertices in a layered
+     * Auxiliary function to calculate the total number of vertices in a layered
      * bipartite graph, given the number of the layers.
      * 
      * @param h - number of layers
@@ -444,7 +444,7 @@ public class TestRunner {
      * A Complete Graph is a graph where every vertex is connected to all the
      * other vertices, by exactly one edge.
      * 
-     * @param V  - total number of vertices
+     * @param n  - total number of vertices
      * @param g1 - graph for the maximal matching algorithm
      * @param g2 - graph for the greedy degree
      */
@@ -458,7 +458,7 @@ public class TestRunner {
     }
 
     /**
-     * Auxiliar function to add a edge to both instances of GraphMatching and
+     * Auxiliary function to add an edge to both instances of GraphMatching and
      * GraphGreedy
      * 
      * @param g1 - graph for the maximal matching algorithm
