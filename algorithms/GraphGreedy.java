@@ -14,16 +14,16 @@ import java.util.List;
  * 
  * GraphGreedy
  */
-public class GraphGreedy {
+public class GraphGreedy implements Graph {
 
-  private int numVertices; // total numver of vertices
-  private List<Edge> edges; // list of edges
-  private int[] degrees; // list of vertices' degrees
+  private final int numVertices; // total numver of vertices
+  private final List<Edge> edges; // list of edges
+  private final int[] degrees; // list of vertices' degrees
 
   /**
    * Creates a graph with no edges
    * 
-   * @param numVertices
+   * @param numVertices - the number of vertices of the graph
    */
   public GraphGreedy(int numVertices) {
     this.numVertices = numVertices;

@@ -12,7 +12,7 @@ import java.util.List;
  * 
  * GreedyMaxDegree
  */
-public class GreedyMaxDegree {
+public class GreedyMaxDegree implements VertexCoverAlgorithm {
 
   /**
    * Computes a vertex cover with the greedy max-degree algorithm.
@@ -20,13 +20,16 @@ public class GreedyMaxDegree {
    * @param graph
    * @return the cover
    */
-  public ArrayList<Integer> findGreedyMaxDegree(GraphGreedy graph) {
+  @Override
+  public ArrayList<Integer> findVertexCover(Graph graph) {
+    GraphGreedy graphGreedy = (GraphGreedy) graph;
+
     ArrayList<Integer> cover = new ArrayList<>();
 
-    int numVertices = graph.getNumVertices();
-    List<Edge> edges = graph.getEdges();
+    int numVertices = graphGreedy.getNumVertices();
+    List<Edge> edges = graphGreedy.getEdges();
 
-    int[] currentDegrees = graph.getDegreesCopy();
+    int[] currentDegrees = graphGreedy.getDegreesCopy();
     boolean[] inCover = new boolean[numVertices];
 
     while (true) {
@@ -91,5 +94,10 @@ public class GreedyMaxDegree {
         currentDegrees[e.vertex1]--;
       }
     }
+  }
+
+  @Override
+  public String getAlgorithmName() {
+    return "Greedy Max-Degree";
   }
 }

@@ -101,27 +101,17 @@ public class TestRunner {
      *                  MaximalMatching)
      * @return average of cover size and average of execution time
      */
-    private TestResult runAlgorithm(String algorithmName, Object graph, Object algorithm) {
+    private TestResult runAlgorithm(Graph graph, VertexCoverAlgorithm algorithm) {
         long totalTime = 0;
         long totalCover = 0;
 
-        System.out.println("==  " + algorithmName + "   ==");
+        System.out.println("==  " + algorithm.getAlgorithmName() + "   ==");
 
         for (int i = 0; i < repetitions; i++) {
 
             long start = System.nanoTime(); // start the timer
-            ArrayList<Integer> cover = null;
 
-            // find a solution with the algorithm
-            if (graph instanceof GraphGreedy && algorithm instanceof GreedyMaxDegree) {
-                cover = ((GreedyMaxDegree) algorithm).findGreedyMaxDegree(((GraphGreedy) graph));
-
-            } else if (graph instanceof GraphMatching && algorithm instanceof MaximalMatching) {
-                cover = ((MaximalMatching) algorithm).findMaxMatching(((GraphMatching) graph));
-
-            } else {
-                return null;
-            }
+            ArrayList<Integer> cover = algorithm.findVertexCover(graph); // find a solution with the algorithm
 
             long elapsed = System.nanoTime() - start; // calculate the execution time
 
@@ -131,7 +121,7 @@ public class TestRunner {
             totalCover += cover.size();
         }
 
-        // calculates the average for the cover and for the exexution time
+        // calculates the average for the cover and for the execution time
         return new TestResult(
                 (double) totalCover / repetitions,
                 (double) totalTime / repetitions / 1000000.0);
@@ -234,7 +224,7 @@ public class TestRunner {
             GraphGreedy gGreedyBi = new GraphGreedy(totalV);
             generateLayeredBipartiteGraph(h, gMatchingBi, gGreedyBi);
 
-            executeAndPrint("Grafo Bipartido em Camadas (total Vert.=" + totalV + ", E=" + totalE +
+            executeAndPrint("Grafo Bipartido em Camadas (V=" + totalV + ", E=" + totalE +
                     ", nLayers =" + h + ", U=" + h + ", V=" + (totalV - h) + ")",
                     gMatchingBi, gGreedyBi, maximalAlgo, greedyAlgo);
 
@@ -306,8 +296,8 @@ public class TestRunner {
 
         System.out.println(">> Instância: " + testName);
 
-        TestResult maximalResult = runAlgorithm("Maximal Matching", g1, maximal);
-        TestResult greedyResult = runAlgorithm("Greedy Max-Degree",g2, greedy);
+        TestResult maximalResult = runAlgorithm(g1, maximal);
+        TestResult greedyResult = runAlgorithm(g2, greedy);
 
         System.out.printf(
                 "   %-20s -> Cobertura média: %.2f | Tempo médio: %.3f ms%n", "Maximal Matching",

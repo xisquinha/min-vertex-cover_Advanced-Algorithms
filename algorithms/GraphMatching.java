@@ -4,17 +4,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Represents an undirected and unwighted graph.
+ * Represents an undirected and unweighted graph.
  * This graph is stored as an edge list and used as input for the maximal
  * matching vertex cover algorithm.
  * 
- * The algorithm scans the edges in insetion order, so the order in which
+ * The algorithm scans the edges in insertion order, so the order in which
  * "addEdge" is called can change the cover that ir returned.~
  * 
  * GraphMatching
  */
-public class GraphMatching {
-  private List<Edge> edges; // all edges
+public class GraphMatching implements Graph {
+  private final List<Edge> edges; // all edges
 
   /**
    * Creates a graph

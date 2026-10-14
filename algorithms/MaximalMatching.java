@@ -7,7 +7,7 @@ import java.util.*;
  * Problem.
  * algorithms.MaximalMatching
  */
-public class MaximalMatching {
+public class MaximalMatching implements VertexCoverAlgorithm {
 
   /**
    * The function findMaxMatching calculates a cover for a giver graph.
@@ -20,20 +20,28 @@ public class MaximalMatching {
    * @param graph - the graph whose vertex cover will be calculated
    * @return a list with the vertices in the cover
    */
-  public ArrayList<Integer> findMaxMatching(GraphMatching graph) {
-    Set<Integer> M = new HashSet<>();
+  @Override
+  public ArrayList<Integer> findVertexCover(Graph graph) {
+    GraphMatching graphMatching = (GraphMatching) graph;
 
-    List<Edge> edges = new ArrayList<>(graph.getEdges());
+    Set<Integer> vertexCover = new HashSet<>();
+
+    List<Edge> edges = new ArrayList<>(graphMatching.getEdges());
 
     Collections.shuffle(edges);
 
     for (Edge e : edges) {
-      if (!M.contains(e.vertex1) && !M.contains(e.vertex2)) {
-        M.add(e.vertex1);
-        M.add(e.vertex2);
+      if (!vertexCover.contains(e.vertex1) && !vertexCover.contains(e.vertex2)) {
+        vertexCover.add(e.vertex1);
+        vertexCover.add(e.vertex2);
       }
     }
 
-    return new ArrayList<>(M);
+    return new ArrayList<>(vertexCover);
+  }
+
+  @Override
+  public String getAlgorithmName() {
+    return "Maximal Matching";
   }
 }
