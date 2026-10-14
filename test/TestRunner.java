@@ -2,10 +2,7 @@ package test;
 
 import algorithms.*;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Random;
-import java.util.Set;
+import java.util.*;
 
 /**
  * TestRunner
@@ -24,86 +21,34 @@ public class TestRunner {
         this.repetitions = repetitions;
     }
 
-    /*
-     * private TestResult runMaximalMatching(GraphMatching graph, MaximalMatching
-     * algorithm) {
-     * long totalTime = 0;
-     * long totalCover = 0;
-     * 
-     * System.out.println("== Maximal Matching ==");
-     * 
-     * for (int i = 0; i < repetitions; i++) {
-     * 
-     * long start = System.nanoTime(); // beggin the counter
-     * ArrayList<Integer> cover = algorithm.findMaxMatching(graph); // calculate the
-     * solution
-     * long elapsed = System.nanoTime() - start; // calculate the execution time
-     * 
-     * System.out.printf("Run %2d -> Cover: %-5d | Tempo: %.3f ms%n", i + 1,
-     * cover.size(), elapsed / 1000000.0);
-     * 
-     * totalTime += elapsed;
-     * totalCover += cover.size();
-     * }
-     * 
-     * return new TestResult(
-     * (double) totalCover / repetitions,
-     * (double) totalTime / repetitions / 1000000.0);
-     * }
-     *
-     * private TestResult runGreedyMaxDegree(GraphGreedy graph, GreedyMaxDegree
-     * algorithm) {
-     * long totalTime = 0;
-     * long totalCover = 0;
-     * 
-     * System.out.println("== Greedy Max-Degree ==");
-     * 
-     * for (int i = 0; i < repetitions; i++) {
-     * 
-     * long start = System.nanoTime();
-     * ArrayList<Integer> cover = algorithm.findGreedyMaxDegree(graph);
-     * long elapsed = System.nanoTime() - start;
-     * 
-     * System.out.printf("Run %2d -> Cover: %-5d | Tempo: %.3f ms%n", i + 1,
-     * cover.size(), elapsed / 1000000.0);
-     * 
-     * totalTime += elapsed;
-     * totalCover += cover.size();
-     * }
-     * 
-     * return new TestResult(
-     * (double) totalCover / repetitions,
-     * (double) totalTime / repetitions / 1000000.0);
-     * }
-     */
-
     /**
-     * Given a graph and an instance of the respective algorithm, this function
+     * Given a graph and an instance of a vertex cover algorithm, this function
      * executes the solution "repetitions" times and calculates the average
      * of the number of vertices in the solution and the average of the time that
      * it took to execute it.
-     * This "repetitions" number is a variable that's initialized in the contructor
+     * This "repetitions" number is a variable that's initialized in the constructor
      * of this class.
-     * 
+     *
      * Since different algorithms work with different characteristics of the graph,
      * for better cost a class specified for each algorithm is better than a geral
      * graph.
-     * 
-     * The classes that are being used for the graph are: GraphGreedy and
-     * GraphMatching; and the classes for the algorithms are GreedyMaxDegree
-     * and MaximalMatching.
-     * So if we want to use the maximal mathing algorithm we will use the
+     *
+     * The structures that are being used for the graph implement the Graph interface
+     * (GraphGreedy and GraphMatching); and the classes for the algorithms implement
+     * the VertexCoverAlgorithm interface (GreedyMaxDegree and MaximalMatching).
+     * So if we want to use the maximal matching algorithm we will use the
      * correspondent graph, the same logic applies to the greedy maximum-degree
-     * algorithm
-     * 
-     * @param graph     - an instance of the graph (GraphGreedy or Graph Matching)
-     * @param algorithm - an instance of the algorithm (GreedyMaxDegree or
-     *                  MaximalMatching)
+     * algorithm.
+     *
+     * @param graph     - an instance of the graph implementing Graph (GraphGreedy or GraphMatching)
+     * @param algorithm - an instance of the algorithm implementing VertexCoverAlgorithm
+     *                  (GreedyMaxDegree or MaximalMatching)
      * @return average of cover size and average of execution time
      */
     private TestResult runAlgorithm(Graph graph, VertexCoverAlgorithm algorithm) {
         long totalTime = 0;
         long totalCover = 0;
+        List<Integer> coverSizes = new ArrayList<>();
 
         System.out.println("==  " + algorithm.getAlgorithmName() + "   ==");
 
@@ -119,12 +64,13 @@ public class TestRunner {
 
             totalTime += elapsed;
             totalCover += cover.size();
+            coverSizes.add(cover.size());
         }
 
-        // calculates the average for the cover and for the execution time
         return new TestResult(
                 (double) totalCover / repetitions,
-                (double) totalTime / repetitions / 1000000.0);
+                (double) totalTime / repetitions / 1000000.0,
+                coverSizes);
     }
 
     /**
@@ -299,14 +245,22 @@ public class TestRunner {
         TestResult maximalResult = runAlgorithm(g1, maximal);
         TestResult greedyResult = runAlgorithm(g2, greedy);
 
-        System.out.printf(
-                "   %-20s -> Cobertura média: %.2f | Tempo médio: %.3f ms%n", "Maximal Matching",
-                maximalResult.getAverageCoverSize(), maximalResult.getAverageExecutionTimeMs());
-
-        System.out.printf(
-                "   %-20s -> Cobertura média: %.2f | Tempo médio: %.3f ms%n", "Greedy Max-Degree",
-                greedyResult.getAverageCoverSize(), greedyResult.getAverageExecutionTimeMs());
         System.out.println();
+        System.out.println("Resultados Consolidados:");
+        printAlgorithmMetrics(maximal.getAlgorithmName(), maximalResult);
+        printAlgorithmMetrics(greedy.getAlgorithmName(), greedyResult);
+        System.out.println();
+    }
+
+    private void printAlgorithmMetrics(String algorithmName, TestResult result) {
+        System.out.printf(
+                "%-20s -> Cobertura Média: %6.2f [Mín: %4d | Máx: %4d] | Tempo Médio: %7.3f ms%n",
+                algorithmName,
+                result.getAverageCoverSize(),
+                result.getMinCoverSize(),
+                result.getMaxCoverSize(),
+                result.getAverageExecutionTimeMs()
+        );
     }
 
     // Grafos Aleatórios com seed fixa
