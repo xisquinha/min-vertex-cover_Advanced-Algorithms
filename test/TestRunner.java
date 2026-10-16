@@ -33,15 +33,18 @@ public class TestRunner {
      * for better cost a class specified for each algorithm is better than a geral
      * graph.
      *
-     * The structures that are being used for the graph implement the Graph interface
+     * The structures that are being used for the graph implement the Graph
+     * interface
      * (GraphGreedy and GraphMatching); and the classes for the algorithms implement
      * the VertexCoverAlgorithm interface (GreedyMaxDegree and MaximalMatching).
      * So if we want to use the maximal matching algorithm we will use the
      * correspondent graph, the same logic applies to the greedy maximum-degree
      * algorithm.
      *
-     * @param graph     - an instance of the graph implementing Graph (GraphGreedy or GraphMatching)
-     * @param algorithm - an instance of the algorithm implementing VertexCoverAlgorithm
+     * @param graph     - an instance of the graph implementing Graph (GraphGreedy
+     *                  or GraphMatching)
+     * @param algorithm - an instance of the algorithm implementing
+     *                  VertexCoverAlgorithm
      *                  (GreedyMaxDegree or MaximalMatching)
      * @return average of cover size and average of execution time
      */
@@ -78,29 +81,156 @@ public class TestRunner {
      * in the console.
      * 
      * Types of graphs: Random Graphs; Star Graph; Path Graph; Layered Bipartite
-     * Graph; Complete Graph; Double Star Graph.
+     * Graph; Complete Graph; Double Star Graph and Lattice Graph.
      */
     public void runAllTests() {
         MaximalMatching maximalAlgo = new MaximalMatching();
         GreedyMaxDegree greedyAlgo = new GreedyMaxDegree();
 
         // Variamos o tamanho dos testes: Pequeno, Médio, Grande
-        int[] instanceSizes = { 100, 1000, 5000 };
+        int[] instanceSizes = { 57, 100, 123, 1000, 5000 };
 
         int[][] instacesDoubleStar_A_B = { { 0, 0 }, { 0, 5 }, { 10, 10 }, { 1, 50 }, { 500, 500 } };
 
         int[] instancesLayers = { 5, 100, 1000 };
 
+        int[][] instancesLattice = { { 3, 3 }, { 4, 3 }, { 10, 10 }, { 15, 15 }, { 100, 100 }, { 40, 30 },
+                { 400, 300 } };
+
         System.out.println("================================================================================");
         System.out.println("                        INÍCIO DOS TESTES EXPERIMENTAIS                          ");
         System.out.println("================================================================================\n");
 
-        // ---------------------------------------------------------------------
-        // FAMÍLIA 1: GRAFOS ALEATÓRIOS (ESPARSOS E DENSOS)
-        // ---------------------------------------------------------------------
-        System.out.println("--------------------------------------------------------------------------------");
-        System.out.println("[FAMÍLIA 1] GRAFOS ALEATÓRIOS");
-        System.out.println("--------------------------------------------------------------------------------");
+        runStar(instanceSizes, maximalAlgo, greedyAlgo);
+        runPath(instanceSizes, maximalAlgo, greedyAlgo);
+        runBipartite(instancesLayers, maximalAlgo, greedyAlgo);
+        runComplete(instanceSizes, maximalAlgo, greedyAlgo);
+        runDoubStar(instacesDoubleStar_A_B, maximalAlgo, greedyAlgo);
+        runLattice(instancesLattice, maximalAlgo, greedyAlgo);
+        runRandom(instanceSizes, maximalAlgo, greedyAlgo);
+
+        System.out.println("================================================================================");
+        System.out.println("                   FIM DA SUITE DE TESTES EXPERIMENTAIS                        ");
+        System.out.println("================================================================================");
+    }
+
+    // ---------------------------------------------------------------------
+    // GRAFO EM ESTRELA (Pior caso do Maximal, Melhor do Greedy)
+    // ---------------------------------------------------------------------
+    private void runStar(int[] instanceSizes, MaximalMatching maximalAlgo, GreedyMaxDegree greedyAlgo) {
+
+        printTestSeparation("GRAFO EM ESTRELA");
+
+        for (int V : instanceSizes) {
+            GraphMatching gMatchingStar = new GraphMatching();
+            GraphGreedy gGreedyStar = new GraphGreedy(V);
+            generateStarGraph(V, gMatchingStar, gGreedyStar);
+
+            executeAndPrint("Grafo em Estrela (V=" + V + ", E=" + (V - 1) + "), |C*|= 1",
+                    gMatchingStar, gGreedyStar, maximalAlgo, greedyAlgo);
+        }
+    }
+
+    // ---------------------------------------------------------------------
+    // GRAFO EM LINHA / CAMINHO
+    // ---------------------------------------------------------------------
+    private void runPath(int[] instanceSizes, MaximalMatching maximalAlgo, GreedyMaxDegree greedyAlgo) {
+        printTestSeparation("GRAFO EM LINHA (PATH GRAPH)");
+
+        for (int V : instanceSizes) {
+            GraphMatching gMatchingPath = new GraphMatching();
+            GraphGreedy gGreedyPath = new GraphGreedy(V);
+            generatePathGraph(V, gMatchingPath, gGreedyPath);
+
+            executeAndPrint("Grafo em Linha/Caminho (V=" + V + ", E=" + (V - 1) + "), |C*|=" + ((int) (V / 2)),
+                    gMatchingPath, gGreedyPath, maximalAlgo, greedyAlgo);
+        }
+    }
+
+    // ---------------------------------------------------------------------
+    // GRAFO BIPARTIDO EM CAMADAS (Pior caso do Greedy)
+    // ---------------------------------------------------------------------
+    private void runBipartite(int[] instancesLayers, MaximalMatching maximalAlgo, GreedyMaxDegree greedyAlgo) {
+        printTestSeparation("GRAFO BIPARTIDO EM CAMADAS");
+
+        for (int h : instancesLayers) {
+            int totalV = layeredBipartiteVertexCount(h);
+            int totalE = layeredBipartiteEdgeCount(h);
+            GraphMatching gMatchingBi = new GraphMatching();
+            GraphGreedy gGreedyBi = new GraphGreedy(totalV);
+            generateLayeredBipartiteGraph(h, gMatchingBi, gGreedyBi);
+
+            executeAndPrint("Grafo Bipartido em Camadas (V=" + totalV + ", E=" + totalE +
+                    ", nLayers =" + h + ", U=" + h + ", V=" + (totalV - h) + "), |C*|=" + h,
+                    gMatchingBi, gGreedyBi, maximalAlgo, greedyAlgo);
+        }
+    }
+
+    // ---------------------------------------------------------------------
+    // GRAFO COMPLETO
+    // ---------------------------------------------------------------------
+    private void runComplete(int[] instanceSizes, MaximalMatching maximalAlgo, GreedyMaxDegree greedyAlgo) {
+        printTestSeparation("GRAFO COMPLETO");
+
+        for (int V : instanceSizes) {
+            GraphMatching gMatchingComplete = new GraphMatching();
+            GraphGreedy gGreedyComplete = new GraphGreedy(V);
+            generateCompleteGraph(V, gMatchingComplete, gGreedyComplete);
+
+            executeAndPrint("Grafo Completo (V=" + V + ", E=" + (V * (V - 1) / 2) + "), |C*|=" + (V - 1),
+                    gMatchingComplete, gGreedyComplete, maximalAlgo, greedyAlgo);
+
+        }
+    }
+
+    // ---------------------------------------------------------------------
+    // GRAFO DUPLA ESTRELA
+    // ---------------------------------------------------------------------
+    private void runDoubStar(int[][] instacesDoubleStar_A_B, MaximalMatching maximalAlgo, GreedyMaxDegree greedyAlgo) {
+        printTestSeparation("GRAFO DUPLA ESTRELA");
+
+        for (int[] a_b : instacesDoubleStar_A_B) {
+            int a = a_b[0];
+            int b = a_b[1];
+            int V = a + b + 2;
+
+            GraphMatching gMatchingDubStar = new GraphMatching();
+            GraphGreedy gGreedyDubStar = new GraphGreedy(V);
+            generateDoubleStarGraph(a, b, gMatchingDubStar, gGreedyDubStar);
+
+            executeAndPrint("Grafo Dupla Estrela (V=" + V + ", E=" + (V - 1) + ", A=" + a + ", B=" + b + "), |C*|= 2",
+                    gMatchingDubStar, gGreedyDubStar, maximalAlgo, greedyAlgo);
+
+        }
+    }
+
+    // ---------------------------------------------------------------------
+    // GRAFO LATTICE
+    // ---------------------------------------------------------------------
+    private void runLattice(int[][] instancesLattice, MaximalMatching maximalAlgo, GreedyMaxDegree greedyAlgo) {
+        printTestSeparation("GRAFO LATTICE");
+
+        for (int[] w_h : instancesLattice) {
+            int w = w_h[0];
+            int h = w_h[1];
+            int V = w * h;
+
+            GraphMatching gMatchingLattice = new GraphMatching();
+            GraphGreedy gGreedyLattice = new GraphGreedy(V);
+            generateLatticeGraph(w, h, gMatchingLattice, gGreedyLattice);
+
+            executeAndPrint("Grafo Lattice (V=" + V + ", W=" + w + ", H=" + h + "), |C*|=" + ((int) (V / 2)),
+                    gMatchingLattice, gGreedyLattice, maximalAlgo, greedyAlgo);
+
+        }
+    }
+
+    // ---------------------------------------------------------------------
+    // GRAFOS ALEATÓRIOS (ESPARSOS E DENSOS)
+    // ---------------------------------------------------------------------
+    private void runRandom(int[] instanceSizes, MaximalMatching maximalAlgo, GreedyMaxDegree greedyAlgo) {
+
+        printTestSeparation("GRAFOS ALEATÓRIOS");
 
         for (int V : instanceSizes) {
             // Cenário Esparso
@@ -123,102 +253,6 @@ public class TestRunner {
                         gMatchingDens, gGreedyDens, maximalAlgo, greedyAlgo);
             }
         }
-
-        // ---------------------------------------------------------------------
-        // FAMÍLIA 2: GRAFO EM ESTRELA (Pior caso do Maximal, Melhor do Greedy)
-        // ---------------------------------------------------------------------
-        System.out.println("\n--------------------------------------------------------------------------------");
-        System.out.println("[FAMÍLIA 2] GRAFO EM ESTRELA");
-        System.out.println("--------------------------------------------------------------------------------");
-
-        for (int V : instanceSizes) {
-            GraphMatching gMatchingStar = new GraphMatching();
-            GraphGreedy gGreedyStar = new GraphGreedy(V);
-            generateStarGraph(V, gMatchingStar, gGreedyStar);
-
-            executeAndPrint("Grafo em Estrela (V=" + V + ", E=" + (V - 1) + ")",
-                    gMatchingStar, gGreedyStar, maximalAlgo, greedyAlgo);
-        }
-
-        // ---------------------------------------------------------------------
-        // FAMÍLIA 3: GRAFO EM LINHA / CAMINHO
-        // ---------------------------------------------------------------------
-        System.out.println("\n--------------------------------------------------------------------------------");
-        System.out.println("[FAMÍLIA 3] GRAFO EM LINHA (PATH GRAPH)");
-        System.out.println("--------------------------------------------------------------------------------");
-
-        for (int V : instanceSizes) {
-            GraphMatching gMatchingPath = new GraphMatching();
-            GraphGreedy gGreedyPath = new GraphGreedy(V);
-            generatePathGraph(V, gMatchingPath, gGreedyPath);
-
-            executeAndPrint("Grafo em Linha/Caminho (V=" + V + ", E=" + (V - 1) + ")",
-                    gMatchingPath, gGreedyPath, maximalAlgo, greedyAlgo);
-        }
-
-        // ---------------------------------------------------------------------
-        // FAMÍLIA 4: GRAFO BIPARTIDO EM CAMADAS (Pior caso do Greedy)
-        // ---------------------------------------------------------------------
-        System.out.println("\n--------------------------------------------------------------------------------");
-        System.out.println("[FAMÍLIA 4] GRAFO BIPARTIDO EM CAMADAS");
-        System.out.println("--------------------------------------------------------------------------------");
-
-        for (int h : instancesLayers) {
-            int totalV = layeredBipartiteVertexCount(h);
-            int totalE = layeredBipartiteEdgeCount(h);
-            GraphMatching gMatchingBi = new GraphMatching();
-            GraphGreedy gGreedyBi = new GraphGreedy(totalV);
-            generateLayeredBipartiteGraph(h, gMatchingBi, gGreedyBi);
-
-            executeAndPrint("Grafo Bipartido em Camadas (V=" + totalV + ", E=" + totalE +
-                    ", nLayers =" + h + ", U=" + h + ", V=" + (totalV - h) + ")",
-                    gMatchingBi, gGreedyBi, maximalAlgo, greedyAlgo);
-
-        }
-
-        // ---------------------------------------------------------------------
-        // FAMÍLIA 5: GRAFO COMPLETO
-        // ---------------------------------------------------------------------
-
-        System.out.println("\n--------------------------------------------------------------------------------");
-        System.out.println("[FAMÍLIA 5] GRAFO COMPLETO");
-        System.out.println("--------------------------------------------------------------------------------");
-
-        for (int V : instanceSizes) {
-            GraphMatching gMatchingComplete = new GraphMatching();
-            GraphGreedy gGreedyComplete = new GraphGreedy(V);
-            generateCompleteGraph(V, gMatchingComplete, gGreedyComplete);
-
-            executeAndPrint("Grafo Completo (V=" + V + ", E=" + (V * (V - 1) / 2) + ")",
-                    gMatchingComplete, gGreedyComplete, maximalAlgo, greedyAlgo);
-
-        }
-
-        // ---------------------------------------------------------------------
-        // FAMÍLIA 6: GRAFO DUPLA ESTRELA
-        // ---------------------------------------------------------------------
-
-        System.out.println("\n--------------------------------------------------------------------------------");
-        System.out.println("[FAMÍLIA 6] GRAFO DUPLA ESTRELA");
-        System.out.println("--------------------------------------------------------------------------------");
-
-        for (int[] a_b : instacesDoubleStar_A_B) {
-            int a = a_b[0];
-            int b = a_b[1];
-            int V = a + b + 2;
-
-            GraphMatching gMatchingDubStar = new GraphMatching();
-            GraphGreedy gGreedyDubStar = new GraphGreedy(V);
-            generateDoubleStarGraph(a, b, gMatchingDubStar, gGreedyDubStar);
-
-            executeAndPrint("Grafo Dupla Estrela (V=" + V + ", E=" + (V - 1) + ", A=" + a + ", B=" + b + ")",
-                    gMatchingDubStar, gGreedyDubStar, maximalAlgo, greedyAlgo);
-
-        }
-
-        System.out.println("================================================================================");
-        System.out.println("                   FIM DA SUITE DE TESTES EXPERIMENTAIS                        ");
-        System.out.println("================================================================================");
     }
 
     /**
@@ -259,8 +293,7 @@ public class TestRunner {
                 result.getAverageCoverSize(),
                 result.getMinCoverSize(),
                 result.getMaxCoverSize(),
-                result.getAverageExecutionTimeMs()
-        );
+                result.getAverageExecutionTimeMs());
     }
 
     // Grafos Aleatórios com seed fixa
@@ -402,6 +435,28 @@ public class TestRunner {
     }
 
     /**
+     * A Lattice Graph is a graph whose vertices are arranged like points on a
+     * regular grid, with edeges connecting neighbours points.
+     * 
+     * @param w  - width of the graph (number of vertices)
+     * @param h  - hwight of the graph (number of vertices)
+     * @param g1 - graph for the maximal matching algorithm
+     * @param g2 - graph for the greedy degree
+     */
+    public void generateLatticeGraph(int w, int h, GraphMatching g1, GraphGreedy g2) {
+        for (int i = 0; i < h - 1; i++) {
+            for (int t = 0; t < w - 1; t++) {
+                addEdgeToGraphs(g1, g2, w * i + t, w * i + t + 1);
+                addEdgeToGraphs(g1, g2, w * i + t, w * i + t + w);
+            }
+            addEdgeToGraphs(g1, g2, (i + 1) * w - 1, (i + 1) * w - 1 + w);
+        }
+        for (int y = 0; y < w - 1; y++) {
+            addEdgeToGraphs(g1, g2, w * (h - 1) + y, w * (h - 1) + y + 1);
+        }
+    }
+
+    /**
      * Auxiliary function to add an edge to both instances of GraphMatching and
      * GraphGreedy
      * 
@@ -413,5 +468,12 @@ public class TestRunner {
     private void addEdgeToGraphs(GraphMatching g1, GraphGreedy g2, int v1, int v2) {
         g1.addEdge(v1, v2);
         g2.addEdge(v1, v2);
+    }
+
+    private void printTestSeparation(String testName) {
+        System.out.println("\n--------------------------------------------------------------------------------");
+        System.out.println(testName.toUpperCase());
+        System.out.println("--------------------------------------------------------------------------------");
+
     }
 }
