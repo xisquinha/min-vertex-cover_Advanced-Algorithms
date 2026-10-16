@@ -68,7 +68,7 @@ public class GreedyMaxDegree implements VertexCoverAlgorithm {
     int maxDegree = 0;
 
     for (int i = 0; i < numVertices; i++) {
-      if (!inCover[i] && currentDegrees[i] >= maxDegree) {
+      if (!inCover[i] && currentDegrees[i] > maxDegree) {
         maxDegree = currentDegrees[i];
         maxVertex = i;
       }

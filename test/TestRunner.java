@@ -10,12 +10,21 @@ import java.util.*;
  * The class TestRunner generates a few different types of graphs and test both
  * the graphs and algorithms that are implemented in the "algorithms" directory.
  * 
- * This tests are made with different graph sizes and are repeated n times,
+ * These tests are made with different graph sizes and are repeated several times,
  * since some algorithms work with randomness.
  */
 public class TestRunner {
 
     private final int repetitions;
+
+    int[] instanceSizes = { 5, 10, 100, 123, 1000, 5000 };
+
+    int[][] instacesDoubleStar_A_B = { { 0, 0 }, { 0, 5 }, { 10, 10 }, { 1, 50 }, { 500, 500 } };
+
+    int[] instancesLayers = { 5, 100, 1000 };
+
+    int[][] instancesLattice = { { 3, 3 }, { 4, 3 }, { 10, 10 }, { 15, 15 }, { 100, 100 }, { 40, 30 },
+            { 400, 300 } };
 
     public TestRunner(int repetitions) {
         this.repetitions = repetitions;
@@ -87,30 +96,20 @@ public class TestRunner {
         MaximalMatching maximalAlgo = new MaximalMatching();
         GreedyMaxDegree greedyAlgo = new GreedyMaxDegree();
 
-        // Variamos o tamanho dos testes: Pequeno, Médio, Grande
-        int[] instanceSizes = { 57, 100, 123, 1000, 5000 };
-
-        int[][] instacesDoubleStar_A_B = { { 0, 0 }, { 0, 5 }, { 10, 10 }, { 1, 50 }, { 500, 500 } };
-
-        int[] instancesLayers = { 5, 100, 1000 };
-
-        int[][] instancesLattice = { { 3, 3 }, { 4, 3 }, { 10, 10 }, { 15, 15 }, { 100, 100 }, { 40, 30 },
-                { 400, 300 } };
-
         System.out.println("================================================================================");
         System.out.println("                        INÍCIO DOS TESTES EXPERIMENTAIS                          ");
         System.out.println("================================================================================\n");
 
         runStar(instanceSizes, maximalAlgo, greedyAlgo);
+        runDoubStar(instacesDoubleStar_A_B, maximalAlgo, greedyAlgo);
         runPath(instanceSizes, maximalAlgo, greedyAlgo);
+        runLattice(instancesLattice, maximalAlgo, greedyAlgo);
         runBipartite(instancesLayers, maximalAlgo, greedyAlgo);
         runComplete(instanceSizes, maximalAlgo, greedyAlgo);
-        runDoubStar(instacesDoubleStar_A_B, maximalAlgo, greedyAlgo);
-        runLattice(instancesLattice, maximalAlgo, greedyAlgo);
         runRandom(instanceSizes, maximalAlgo, greedyAlgo);
 
         System.out.println("================================================================================");
-        System.out.println("                   FIM DA SUITE DE TESTES EXPERIMENTAIS                        ");
+        System.out.println("                            FIM DOS TESTES EXPERIMENTAIS                        ");
         System.out.println("================================================================================");
     }
 
@@ -156,14 +155,19 @@ public class TestRunner {
         for (int h : instancesLayers) {
             int totalV = layeredBipartiteVertexCount(h);
             int totalE = layeredBipartiteEdgeCount(h);
-            GraphMatching gMatchingBi = new GraphMatching();
-            GraphGreedy gGreedyBi = new GraphGreedy(totalV);
-            generateLayeredBipartiteGraph(h, gMatchingBi, gGreedyBi);
-
-            executeAndPrint("Grafo Bipartido em Camadas (V=" + totalV + ", E=" + totalE +
-                    ", nLayers =" + h + ", U=" + h + ", V=" + (totalV - h) + "), |C*|=" + h,
-                    gMatchingBi, gGreedyBi, maximalAlgo, greedyAlgo);
+            generateAndRunBipartite(maximalAlgo, greedyAlgo, h, true, totalV, totalE);
+            generateAndRunBipartite(maximalAlgo, greedyAlgo, h, false, totalV, totalE);
         }
+    }
+
+    private void generateAndRunBipartite(MaximalMatching maximalAlgo, GreedyMaxDegree greedyAlgo, int h, boolean uHasSmallerIds, int totalV, int totalE) {
+        String testName = String.format("Grafo Bipartido em Camadas [%s] (V=%d, E=%d, nLayers=%d, U=%d, V=%d), |C*|=%d",
+                (uHasSmallerIds ? "U com Ids menores" : "U com Ids maiores"), totalV, totalE, h, h, (totalV - h), h);
+        GraphMatching gMatchingBi = new GraphMatching();
+        GraphGreedy gGreedyBi = new GraphGreedy(totalV);
+        generateLayeredBipartiteGraph(h, gMatchingBi, gGreedyBi, uHasSmallerIds, totalV);
+
+        executeAndPrint(testName, gMatchingBi, gGreedyBi, maximalAlgo, greedyAlgo);
     }
 
     // ---------------------------------------------------------------------
@@ -368,20 +372,26 @@ public class TestRunner {
      * A Layered Bipartite Graph is one of the few graphs that is adversarial to
      * the greedy max degree algorithm.
      * The vertices in the graph are divided in two groups (U, V), where U has k
-     * vertices.
+     * vertices (where k = h).
      * V is split into layers 1, 2, ..., k. Layer i has floor(k/i) vertices, each
      * one with degree i. The vertices in group V are connected only to vertices in
      * group U and vice-versa.
-     * 
-     * @param h  - number of layers
+     *
+     * @param h - number of layers (and size of group U)
      * @param g1 - graph for the maximal matching algorithm
      * @param g2 - graph for the greedy degree
+     * @param uHasSmallerIds if true, group U gets the smaller IDs {0, ..., k-1};
+     *                       if false, V layers get the smaller IDs and U gets the larger IDs
+     * @param totalV         total number of vertices in the graph
      */
-    private void generateLayeredBipartiteGraph(int h, GraphMatching g1, GraphGreedy g2) {
+    public void generateLayeredBipartiteGraph(int h, GraphMatching g1, GraphGreedy g2, boolean uHasSmallerIds, int totalV) {
 
-        // U = {0, ..., k-1}, optimal cover = k
-        // V = {k, ..., V-1}, vertices of layer i have degree i and floor(k/i) vertices
-        int nextV = h; // next V vertex to be created
+        // ID assignment ranges depend on uHasSmallerIds (used to test greedy tie-breaking behavior)
+        // Vertices of layer i have degree i and floor(k/i) vertices
+        int nextV = uHasSmallerIds ? h : 0;
+
+        // Defines where U vertex ids start
+        int startU = uHasSmallerIds ? 0 : (totalV - h);
 
         // looping the layers
         for (int i = 1; i <= h; i++) {
@@ -394,7 +404,7 @@ public class TestRunner {
 
                 // connects the j vertex of layer i to i vertices of U group
                 for (int d = 0; d < i; d++) {
-                    int u = j * i + d;
+                    int u = startU + (j * i + d);
                     addEdgeToGraphs(g1, g2, u, v);
                 }
             }
