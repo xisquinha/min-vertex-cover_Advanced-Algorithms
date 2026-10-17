@@ -198,11 +198,16 @@ public class TestRunner {
             int b = a_b[1];
             int V = a + b + 2;
 
+            int optimal_C = 2;
+            if (a == 0 || b == 0) {
+                optimal_C = 1;
+            }
+
             GraphMatching gMatchingDubStar = new GraphMatching();
             GraphGreedy gGreedyDubStar = new GraphGreedy(V);
             generateDoubleStarGraph(a, b, gMatchingDubStar, gGreedyDubStar);
 
-            executeAndPrint("Grafo Dupla Estrela (V=" + V + ", E=" + (V - 1) + ", A=" + a + ", B=" + b + "), |C*|= 2",
+            executeAndPrint("Grafo Dupla Estrela (V=" + V + ", E=" + (V - 1) + ", A=" + a + ", B=" + b + "), |C*|= " + optimal_C,
                     gMatchingDubStar, gGreedyDubStar, maximalAlgo, greedyAlgo);
 
         }
@@ -212,7 +217,7 @@ public class TestRunner {
     // GRAFO LATTICE
     // ---------------------------------------------------------------------
     private void runLattice(int[][] instancesLattice, MaximalMatching maximalAlgo, GreedyMaxDegree greedyAlgo) {
-        printTestSeparation("GRAFO LATTICE");
+        printTestSeparation("GRAFO LATTICE (GRELHA)");
 
         for (int[] w_h : instancesLattice) {
             int w = w_h[0];
