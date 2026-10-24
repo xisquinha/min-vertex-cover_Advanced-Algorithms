@@ -163,7 +163,7 @@ public class TestRunner {
             generateLayeredBipartiteGraph(h, gMatchingBi, gGreedyBi);
 
             executeAndPrint("Grafo Bipartido em Camadas (V=" + totalV + ", E=" + totalE +
-                    ", nLayers =" + h + ", U=" + h + ", V=" + (totalV - h) + "), |C*|=" + h,
+                    ", nLayers =" + h + ", |U|=" + h + ", |W|=" + (totalV - h) + "), |C*|=" + h,
                     gMatchingBi, gGreedyBi, maximalAlgo, greedyAlgo);
         }
     }
