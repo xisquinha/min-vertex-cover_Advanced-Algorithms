@@ -1,0 +1,1353 @@
+================================================================================
+                        INÍCIO DOS TESTES EXPERIMENTAIS                          
+================================================================================
+
+
+--------------------------------------------------------------------------------
+GRAFO EM ESTRELA
+--------------------------------------------------------------------------------
+>> Instância: Grafo em Estrela (V=5, E=4), |C*|= 1
+==  Maximal Matching   ==
+Run  1 -> Cover: 2     | Tempo: 0,356 ms
+Run  2 -> Cover: 2     | Tempo: 0,061 ms
+Run  3 -> Cover: 2     | Tempo: 0,021 ms
+Run  4 -> Cover: 2     | Tempo: 0,016 ms
+Run  5 -> Cover: 2     | Tempo: 0,030 ms
+Run  6 -> Cover: 2     | Tempo: 0,047 ms
+Run  7 -> Cover: 2     | Tempo: 0,034 ms
+Run  8 -> Cover: 2     | Tempo: 0,037 ms
+Run  9 -> Cover: 2     | Tempo: 0,046 ms
+Run 10 -> Cover: 2     | Tempo: 0,045 ms
+==  Greedy Max-Degree   ==
+Run  1 -> Cover: 1     | Tempo: 0,034 ms
+Run  2 -> Cover: 1     | Tempo: 0,006 ms
+Run  3 -> Cover: 1     | Tempo: 0,006 ms
+Run  4 -> Cover: 1     | Tempo: 0,004 ms
+Run  5 -> Cover: 1     | Tempo: 0,004 ms
+Run  6 -> Cover: 1     | Tempo: 0,004 ms
+Run  7 -> Cover: 1     | Tempo: 0,005 ms
+Run  8 -> Cover: 1     | Tempo: 0,006 ms
+Run  9 -> Cover: 1     | Tempo: 0,005 ms
+Run 10 -> Cover: 1     | Tempo: 0,005 ms
+
+Resultados Consolidados:
+Maximal Matching     -> Cobertura Média:   2,00 [Mín:    2 | Máx:    2] | Tempo Médio:   0,069 ms
+Greedy Max-Degree    -> Cobertura Média:   1,00 [Mín:    1 | Máx:    1] | Tempo Médio:   0,008 ms
+
+>> Instância: Grafo em Estrela (V=10, E=9), |C*|= 1
+==  Maximal Matching   ==
+Run  1 -> Cover: 2     | Tempo: 0,054 ms
+Run  2 -> Cover: 2     | Tempo: 0,019 ms
+Run  3 -> Cover: 2     | Tempo: 0,019 ms
+Run  4 -> Cover: 2     | Tempo: 0,017 ms
+Run  5 -> Cover: 2     | Tempo: 0,018 ms
+Run  6 -> Cover: 2     | Tempo: 0,017 ms
+Run  7 -> Cover: 2     | Tempo: 0,019 ms
+Run  8 -> Cover: 2     | Tempo: 0,019 ms
+Run  9 -> Cover: 2     | Tempo: 0,023 ms
+Run 10 -> Cover: 2     | Tempo: 0,032 ms
+==  Greedy Max-Degree   ==
+Run  1 -> Cover: 1     | Tempo: 0,013 ms
+Run  2 -> Cover: 1     | Tempo: 0,011 ms
+Run  3 -> Cover: 1     | Tempo: 0,006 ms
+Run  4 -> Cover: 1     | Tempo: 0,006 ms
+Run  5 -> Cover: 1     | Tempo: 0,007 ms
+Run  6 -> Cover: 1     | Tempo: 0,007 ms
+Run  7 -> Cover: 1     | Tempo: 0,005 ms
+Run  8 -> Cover: 1     | Tempo: 0,004 ms
+Run  9 -> Cover: 1     | Tempo: 0,005 ms
+Run 10 -> Cover: 1     | Tempo: 0,004 ms
+
+Resultados Consolidados:
+Maximal Matching     -> Cobertura Média:   2,00 [Mín:    2 | Máx:    2] | Tempo Médio:   0,024 ms
+Greedy Max-Degree    -> Cobertura Média:   1,00 [Mín:    1 | Máx:    1] | Tempo Médio:   0,007 ms
+
+>> Instância: Grafo em Estrela (V=100, E=99), |C*|= 1
+==  Maximal Matching   ==
+Run  1 -> Cover: 2     | Tempo: 0,124 ms
+Run  2 -> Cover: 2     | Tempo: 0,111 ms
+Run  3 -> Cover: 2     | Tempo: 0,127 ms
+Run  4 -> Cover: 2     | Tempo: 0,113 ms
+Run  5 -> Cover: 2     | Tempo: 0,160 ms
+Run  6 -> Cover: 2     | Tempo: 0,106 ms
+Run  7 -> Cover: 2     | Tempo: 0,084 ms
+Run  8 -> Cover: 2     | Tempo: 0,065 ms
+Run  9 -> Cover: 2     | Tempo: 0,059 ms
+Run 10 -> Cover: 2     | Tempo: 0,054 ms
+==  Greedy Max-Degree   ==
+Run  1 -> Cover: 1     | Tempo: 0,018 ms
+Run  2 -> Cover: 1     | Tempo: 0,016 ms
+Run  3 -> Cover: 1     | Tempo: 0,015 ms
+Run  4 -> Cover: 1     | Tempo: 0,139 ms
+Run  5 -> Cover: 1     | Tempo: 0,030 ms
+Run  6 -> Cover: 1     | Tempo: 0,017 ms
+Run  7 -> Cover: 1     | Tempo: 0,016 ms
+Run  8 -> Cover: 1     | Tempo: 0,016 ms
+Run  9 -> Cover: 1     | Tempo: 0,019 ms
+Run 10 -> Cover: 1     | Tempo: 0,045 ms
+
+Resultados Consolidados:
+Maximal Matching     -> Cobertura Média:   2,00 [Mín:    2 | Máx:    2] | Tempo Médio:   0,100 ms
+Greedy Max-Degree    -> Cobertura Média:   1,00 [Mín:    1 | Máx:    1] | Tempo Médio:   0,033 ms
+
+>> Instância: Grafo em Estrela (V=123, E=122), |C*|= 1
+==  Maximal Matching   ==
+Run  1 -> Cover: 2     | Tempo: 0,109 ms
+Run  2 -> Cover: 2     | Tempo: 0,059 ms
+Run  3 -> Cover: 2     | Tempo: 0,054 ms
+Run  4 -> Cover: 2     | Tempo: 0,078 ms
+Run  5 -> Cover: 2     | Tempo: 0,054 ms
+Run  6 -> Cover: 2     | Tempo: 0,077 ms
+Run  7 -> Cover: 2     | Tempo: 0,060 ms
+Run  8 -> Cover: 2     | Tempo: 0,071 ms
+Run  9 -> Cover: 2     | Tempo: 0,049 ms
+Run 10 -> Cover: 2     | Tempo: 0,036 ms
+==  Greedy Max-Degree   ==
+Run  1 -> Cover: 1     | Tempo: 0,020 ms
+Run  2 -> Cover: 1     | Tempo: 0,017 ms
+Run  3 -> Cover: 1     | Tempo: 0,018 ms
+Run  4 -> Cover: 1     | Tempo: 0,019 ms
+Run  5 -> Cover: 1     | Tempo: 0,017 ms
+Run  6 -> Cover: 1     | Tempo: 0,034 ms
+Run  7 -> Cover: 1     | Tempo: 0,017 ms
+Run  8 -> Cover: 1     | Tempo: 0,033 ms
+Run  9 -> Cover: 1     | Tempo: 0,017 ms
+Run 10 -> Cover: 1     | Tempo: 0,017 ms
+
+Resultados Consolidados:
+Maximal Matching     -> Cobertura Média:   2,00 [Mín:    2 | Máx:    2] | Tempo Médio:   0,065 ms
+Greedy Max-Degree    -> Cobertura Média:   1,00 [Mín:    1 | Máx:    1] | Tempo Médio:   0,021 ms
+
+>> Instância: Grafo em Estrela (V=1000, E=999), |C*|= 1
+==  Maximal Matching   ==
+Run  1 -> Cover: 2     | Tempo: 0,272 ms
+Run  2 -> Cover: 2     | Tempo: 0,241 ms
+Run  3 -> Cover: 2     | Tempo: 0,237 ms
+Run  4 -> Cover: 2     | Tempo: 0,254 ms
+Run  5 -> Cover: 2     | Tempo: 0,243 ms
+Run  6 -> Cover: 2     | Tempo: 0,350 ms
+Run  7 -> Cover: 2     | Tempo: 0,240 ms
+Run  8 -> Cover: 2     | Tempo: 0,222 ms
+Run  9 -> Cover: 2     | Tempo: 0,201 ms
+Run 10 -> Cover: 2     | Tempo: 0,196 ms
+==  Greedy Max-Degree   ==
+Run  1 -> Cover: 1     | Tempo: 0,126 ms
+Run  2 -> Cover: 1     | Tempo: 0,116 ms
+Run  3 -> Cover: 1     | Tempo: 0,133 ms
+Run  4 -> Cover: 1     | Tempo: 0,113 ms
+Run  5 -> Cover: 1     | Tempo: 0,116 ms
+Run  6 -> Cover: 1     | Tempo: 0,117 ms
+Run  7 -> Cover: 1     | Tempo: 0,116 ms
+Run  8 -> Cover: 1     | Tempo: 0,117 ms
+Run  9 -> Cover: 1     | Tempo: 0,136 ms
+Run 10 -> Cover: 1     | Tempo: 0,115 ms
+
+Resultados Consolidados:
+Maximal Matching     -> Cobertura Média:   2,00 [Mín:    2 | Máx:    2] | Tempo Médio:   0,246 ms
+Greedy Max-Degree    -> Cobertura Média:   1,00 [Mín:    1 | Máx:    1] | Tempo Médio:   0,120 ms
+
+>> Instância: Grafo em Estrela (V=5000, E=4999), |C*|= 1
+==  Maximal Matching   ==
+Run  1 -> Cover: 2     | Tempo: 1,459 ms
+Run  2 -> Cover: 2     | Tempo: 1,223 ms
+Run  3 -> Cover: 2     | Tempo: 1,276 ms
+Run  4 -> Cover: 2     | Tempo: 1,099 ms
+Run  5 -> Cover: 2     | Tempo: 1,054 ms
+Run  6 -> Cover: 2     | Tempo: 0,895 ms
+Run  7 -> Cover: 2     | Tempo: 0,856 ms
+Run  8 -> Cover: 2     | Tempo: 0,881 ms
+Run  9 -> Cover: 2     | Tempo: 0,904 ms
+Run 10 -> Cover: 2     | Tempo: 0,862 ms
+==  Greedy Max-Degree   ==
+Run  1 -> Cover: 1     | Tempo: 0,614 ms
+Run  2 -> Cover: 1     | Tempo: 0,511 ms
+Run  3 -> Cover: 1     | Tempo: 0,443 ms
+Run  4 -> Cover: 1     | Tempo: 0,451 ms
+Run  5 -> Cover: 1     | Tempo: 0,469 ms
+Run  6 -> Cover: 1     | Tempo: 0,509 ms
+Run  7 -> Cover: 1     | Tempo: 0,495 ms
+Run  8 -> Cover: 1     | Tempo: 0,471 ms
+Run  9 -> Cover: 1     | Tempo: 0,437 ms
+Run 10 -> Cover: 1     | Tempo: 0,455 ms
+
+Resultados Consolidados:
+Maximal Matching     -> Cobertura Média:   2,00 [Mín:    2 | Máx:    2] | Tempo Médio:   1,051 ms
+Greedy Max-Degree    -> Cobertura Média:   1,00 [Mín:    1 | Máx:    1] | Tempo Médio:   0,486 ms
+
+
+--------------------------------------------------------------------------------
+GRAFO DUPLA ESTRELA
+--------------------------------------------------------------------------------
+>> Instância: Grafo Dupla Estrela (V=2, E=1, A=0, B=0), |C*|= 1
+==  Maximal Matching   ==
+Run  1 -> Cover: 2     | Tempo: 0,048 ms
+Run  2 -> Cover: 2     | Tempo: 0,011 ms
+Run  3 -> Cover: 2     | Tempo: 0,007 ms
+Run  4 -> Cover: 2     | Tempo: 0,007 ms
+Run  5 -> Cover: 2     | Tempo: 0,007 ms
+Run  6 -> Cover: 2     | Tempo: 0,006 ms
+Run  7 -> Cover: 2     | Tempo: 0,006 ms
+Run  8 -> Cover: 2     | Tempo: 0,006 ms
+Run  9 -> Cover: 2     | Tempo: 0,007 ms
+Run 10 -> Cover: 2     | Tempo: 0,008 ms
+==  Greedy Max-Degree   ==
+Run  1 -> Cover: 1     | Tempo: 0,006 ms
+Run  2 -> Cover: 1     | Tempo: 0,002 ms
+Run  3 -> Cover: 1     | Tempo: 0,002 ms
+Run  4 -> Cover: 1     | Tempo: 0,002 ms
+Run  5 -> Cover: 1     | Tempo: 0,002 ms
+Run  6 -> Cover: 1     | Tempo: 0,003 ms
+Run  7 -> Cover: 1     | Tempo: 0,004 ms
+Run  8 -> Cover: 1     | Tempo: 0,002 ms
+Run  9 -> Cover: 1     | Tempo: 0,002 ms
+Run 10 -> Cover: 1     | Tempo: 0,002 ms
+
+Resultados Consolidados:
+Maximal Matching     -> Cobertura Média:   2,00 [Mín:    2 | Máx:    2] | Tempo Médio:   0,011 ms
+Greedy Max-Degree    -> Cobertura Média:   1,00 [Mín:    1 | Máx:    1] | Tempo Médio:   0,003 ms
+
+>> Instância: Grafo Dupla Estrela (V=7, E=6, A=0, B=5), |C*|= 1
+==  Maximal Matching   ==
+Run  1 -> Cover: 2     | Tempo: 0,024 ms
+Run  2 -> Cover: 2     | Tempo: 0,008 ms
+Run  3 -> Cover: 2     | Tempo: 0,008 ms
+Run  4 -> Cover: 2     | Tempo: 0,008 ms
+Run  5 -> Cover: 2     | Tempo: 0,008 ms
+Run  6 -> Cover: 2     | Tempo: 0,008 ms
+Run  7 -> Cover: 2     | Tempo: 0,008 ms
+Run  8 -> Cover: 2     | Tempo: 0,008 ms
+Run  9 -> Cover: 2     | Tempo: 0,008 ms
+Run 10 -> Cover: 2     | Tempo: 0,007 ms
+==  Greedy Max-Degree   ==
+Run  1 -> Cover: 1     | Tempo: 0,009 ms
+Run  2 -> Cover: 1     | Tempo: 0,003 ms
+Run  3 -> Cover: 1     | Tempo: 0,008 ms
+Run  4 -> Cover: 1     | Tempo: 0,003 ms
+Run  5 -> Cover: 1     | Tempo: 0,003 ms
+Run  6 -> Cover: 1     | Tempo: 0,065 ms
+Run  7 -> Cover: 1     | Tempo: 0,003 ms
+Run  8 -> Cover: 1     | Tempo: 0,005 ms
+Run  9 -> Cover: 1     | Tempo: 0,004 ms
+Run 10 -> Cover: 1     | Tempo: 0,004 ms
+
+Resultados Consolidados:
+Maximal Matching     -> Cobertura Média:   2,00 [Mín:    2 | Máx:    2] | Tempo Médio:   0,009 ms
+Greedy Max-Degree    -> Cobertura Média:   1,00 [Mín:    1 | Máx:    1] | Tempo Médio:   0,011 ms
+
+>> Instância: Grafo Dupla Estrela (V=22, E=21, A=10, B=10), |C*|= 2
+==  Maximal Matching   ==
+Run  1 -> Cover: 4     | Tempo: 0,044 ms
+Run  2 -> Cover: 4     | Tempo: 0,016 ms
+Run  3 -> Cover: 4     | Tempo: 0,015 ms
+Run  4 -> Cover: 4     | Tempo: 0,029 ms
+Run  5 -> Cover: 4     | Tempo: 0,032 ms
+Run  6 -> Cover: 4     | Tempo: 0,012 ms
+Run  7 -> Cover: 4     | Tempo: 0,015 ms
+Run  8 -> Cover: 4     | Tempo: 0,014 ms
+Run  9 -> Cover: 2     | Tempo: 0,014 ms
+Run 10 -> Cover: 4     | Tempo: 0,013 ms
+==  Greedy Max-Degree   ==
+Run  1 -> Cover: 2     | Tempo: 0,011 ms
+Run  2 -> Cover: 2     | Tempo: 0,009 ms
+Run  3 -> Cover: 2     | Tempo: 0,007 ms
+Run  4 -> Cover: 2     | Tempo: 0,009 ms
+Run  5 -> Cover: 2     | Tempo: 0,007 ms
+Run  6 -> Cover: 2     | Tempo: 0,006 ms
+Run  7 -> Cover: 2     | Tempo: 0,021 ms
+Run  8 -> Cover: 2     | Tempo: 0,006 ms
+Run  9 -> Cover: 2     | Tempo: 0,006 ms
+Run 10 -> Cover: 2     | Tempo: 0,006 ms
+
+Resultados Consolidados:
+Maximal Matching     -> Cobertura Média:   3,80 [Mín:    2 | Máx:    4] | Tempo Médio:   0,020 ms
+Greedy Max-Degree    -> Cobertura Média:   2,00 [Mín:    2 | Máx:    2] | Tempo Médio:   0,009 ms
+
+>> Instância: Grafo Dupla Estrela (V=53, E=52, A=1, B=50), |C*|= 2
+==  Maximal Matching   ==
+Run  1 -> Cover: 4     | Tempo: 0,041 ms
+Run  2 -> Cover: 4     | Tempo: 0,018 ms
+Run  3 -> Cover: 4     | Tempo: 0,017 ms
+Run  4 -> Cover: 4     | Tempo: 0,018 ms
+Run  5 -> Cover: 4     | Tempo: 0,070 ms
+Run  6 -> Cover: 4     | Tempo: 0,016 ms
+Run  7 -> Cover: 4     | Tempo: 0,019 ms
+Run  8 -> Cover: 4     | Tempo: 0,029 ms
+Run  9 -> Cover: 4     | Tempo: 0,023 ms
+Run 10 -> Cover: 4     | Tempo: 0,023 ms
+==  Greedy Max-Degree   ==
+Run  1 -> Cover: 2     | Tempo: 0,021 ms
+Run  2 -> Cover: 2     | Tempo: 0,013 ms
+Run  3 -> Cover: 2     | Tempo: 0,011 ms
+Run  4 -> Cover: 2     | Tempo: 0,010 ms
+Run  5 -> Cover: 2     | Tempo: 0,021 ms
+Run  6 -> Cover: 2     | Tempo: 0,012 ms
+Run  7 -> Cover: 2     | Tempo: 0,012 ms
+Run  8 -> Cover: 2     | Tempo: 0,012 ms
+Run  9 -> Cover: 2     | Tempo: 0,010 ms
+Run 10 -> Cover: 2     | Tempo: 0,012 ms
+
+Resultados Consolidados:
+Maximal Matching     -> Cobertura Média:   4,00 [Mín:    4 | Máx:    4] | Tempo Médio:   0,027 ms
+Greedy Max-Degree    -> Cobertura Média:   2,00 [Mín:    2 | Máx:    2] | Tempo Médio:   0,013 ms
+
+>> Instância: Grafo Dupla Estrela (V=1002, E=1001, A=500, B=500), |C*|= 2
+==  Maximal Matching   ==
+Run  1 -> Cover: 4     | Tempo: 0,259 ms
+Run  2 -> Cover: 4     | Tempo: 0,230 ms
+Run  3 -> Cover: 4     | Tempo: 0,195 ms
+Run  4 -> Cover: 4     | Tempo: 0,217 ms
+Run  5 -> Cover: 4     | Tempo: 0,222 ms
+Run  6 -> Cover: 4     | Tempo: 0,235 ms
+Run  7 -> Cover: 4     | Tempo: 0,219 ms
+Run  8 -> Cover: 4     | Tempo: 0,245 ms
+Run  9 -> Cover: 4     | Tempo: 0,260 ms
+Run 10 -> Cover: 4     | Tempo: 0,269 ms
+==  Greedy Max-Degree   ==
+Run  1 -> Cover: 2     | Tempo: 0,221 ms
+Run  2 -> Cover: 2     | Tempo: 0,231 ms
+Run  3 -> Cover: 2     | Tempo: 0,201 ms
+Run  4 -> Cover: 2     | Tempo: 0,179 ms
+Run  5 -> Cover: 2     | Tempo: 0,140 ms
+Run  6 -> Cover: 2     | Tempo: 0,128 ms
+Run  7 -> Cover: 2     | Tempo: 0,137 ms
+Run  8 -> Cover: 2     | Tempo: 0,050 ms
+Run  9 -> Cover: 2     | Tempo: 0,026 ms
+Run 10 -> Cover: 2     | Tempo: 0,032 ms
+
+Resultados Consolidados:
+Maximal Matching     -> Cobertura Média:   4,00 [Mín:    4 | Máx:    4] | Tempo Médio:   0,235 ms
+Greedy Max-Degree    -> Cobertura Média:   2,00 [Mín:    2 | Máx:    2] | Tempo Médio:   0,135 ms
+
+
+--------------------------------------------------------------------------------
+GRAFO EM LINHA (PATH GRAPH)
+--------------------------------------------------------------------------------
+>> Instância: Grafo em Linha/Caminho (V=5, E=4), |C*|=2
+==  Maximal Matching   ==
+Run  1 -> Cover: 4     | Tempo: 0,053 ms
+Run  2 -> Cover: 4     | Tempo: 0,051 ms
+Run  3 -> Cover: 4     | Tempo: 0,013 ms
+Run  4 -> Cover: 4     | Tempo: 0,012 ms
+Run  5 -> Cover: 4     | Tempo: 0,016 ms
+Run  6 -> Cover: 4     | Tempo: 0,012 ms
+Run  7 -> Cover: 4     | Tempo: 0,011 ms
+Run  8 -> Cover: 4     | Tempo: 0,030 ms
+Run  9 -> Cover: 4     | Tempo: 0,019 ms
+Run 10 -> Cover: 4     | Tempo: 0,009 ms
+==  Greedy Max-Degree   ==
+Run  1 -> Cover: 2     | Tempo: 0,010 ms
+Run  2 -> Cover: 2     | Tempo: 0,004 ms
+Run  3 -> Cover: 2     | Tempo: 0,003 ms
+Run  4 -> Cover: 2     | Tempo: 0,003 ms
+Run  5 -> Cover: 2     | Tempo: 0,003 ms
+Run  6 -> Cover: 2     | Tempo: 0,002 ms
+Run  7 -> Cover: 2     | Tempo: 0,002 ms
+Run  8 -> Cover: 2     | Tempo: 0,005 ms
+Run  9 -> Cover: 2     | Tempo: 0,003 ms
+Run 10 -> Cover: 2     | Tempo: 0,002 ms
+
+Resultados Consolidados:
+Maximal Matching     -> Cobertura Média:   4,00 [Mín:    4 | Máx:    4] | Tempo Médio:   0,023 ms
+Greedy Max-Degree    -> Cobertura Média:   2,00 [Mín:    2 | Máx:    2] | Tempo Médio:   0,004 ms
+
+>> Instância: Grafo em Linha/Caminho (V=10, E=9), |C*|=5
+==  Maximal Matching   ==
+Run  1 -> Cover: 8     | Tempo: 0,041 ms
+Run  2 -> Cover: 8     | Tempo: 0,016 ms
+Run  3 -> Cover: 8     | Tempo: 0,012 ms
+Run  4 -> Cover: 8     | Tempo: 0,012 ms
+Run  5 -> Cover: 10    | Tempo: 0,014 ms
+Run  6 -> Cover: 8     | Tempo: 0,011 ms
+Run  7 -> Cover: 10    | Tempo: 0,011 ms
+Run  8 -> Cover: 10    | Tempo: 0,017 ms
+Run  9 -> Cover: 6     | Tempo: 0,013 ms
+Run 10 -> Cover: 8     | Tempo: 0,036 ms
+==  Greedy Max-Degree   ==
+Run  1 -> Cover: 5     | Tempo: 0,016 ms
+Run  2 -> Cover: 5     | Tempo: 0,006 ms
+Run  3 -> Cover: 5     | Tempo: 0,004 ms
+Run  4 -> Cover: 5     | Tempo: 0,003 ms
+Run  5 -> Cover: 5     | Tempo: 0,003 ms
+Run  6 -> Cover: 5     | Tempo: 0,003 ms
+Run  7 -> Cover: 5     | Tempo: 0,003 ms
+Run  8 -> Cover: 5     | Tempo: 0,010 ms
+Run  9 -> Cover: 5     | Tempo: 0,004 ms
+Run 10 -> Cover: 5     | Tempo: 0,004 ms
+
+Resultados Consolidados:
+Maximal Matching     -> Cobertura Média:   8,40 [Mín:    6 | Máx:   10] | Tempo Médio:   0,018 ms
+Greedy Max-Degree    -> Cobertura Média:   5,00 [Mín:    5 | Máx:    5] | Tempo Médio:   0,006 ms
+
+>> Instância: Grafo em Linha/Caminho (V=100, E=99), |C*|=50
+==  Maximal Matching   ==
+Run  1 -> Cover: 86    | Tempo: 0,079 ms
+Run  2 -> Cover: 92    | Tempo: 0,059 ms
+Run  3 -> Cover: 84    | Tempo: 0,065 ms
+Run  4 -> Cover: 84    | Tempo: 0,049 ms
+Run  5 -> Cover: 88    | Tempo: 0,048 ms
+Run  6 -> Cover: 88    | Tempo: 0,047 ms
+Run  7 -> Cover: 88    | Tempo: 0,052 ms
+Run  8 -> Cover: 84    | Tempo: 0,076 ms
+Run  9 -> Cover: 80    | Tempo: 0,115 ms
+Run 10 -> Cover: 86    | Tempo: 0,067 ms
+==  Greedy Max-Degree   ==
+Run  1 -> Cover: 50    | Tempo: 0,089 ms
+Run  2 -> Cover: 50    | Tempo: 0,092 ms
+Run  3 -> Cover: 50    | Tempo: 0,078 ms
+Run  4 -> Cover: 50    | Tempo: 0,077 ms
+Run  5 -> Cover: 50    | Tempo: 0,087 ms
+Run  6 -> Cover: 50    | Tempo: 0,083 ms
+Run  7 -> Cover: 50    | Tempo: 0,155 ms
+Run  8 -> Cover: 50    | Tempo: 0,103 ms
+Run  9 -> Cover: 50    | Tempo: 0,084 ms
+Run 10 -> Cover: 50    | Tempo: 0,068 ms
+
+Resultados Consolidados:
+Maximal Matching     -> Cobertura Média:  86,00 [Mín:   80 | Máx:   92] | Tempo Médio:   0,066 ms
+Greedy Max-Degree    -> Cobertura Média:  50,00 [Mín:   50 | Máx:   50] | Tempo Médio:   0,091 ms
+
+>> Instância: Grafo em Linha/Caminho (V=123, E=122), |C*|=61
+==  Maximal Matching   ==
+Run  1 -> Cover: 104   | Tempo: 0,118 ms
+Run  2 -> Cover: 104   | Tempo: 0,087 ms
+Run  3 -> Cover: 102   | Tempo: 0,070 ms
+Run  4 -> Cover: 104   | Tempo: 0,083 ms
+Run  5 -> Cover: 106   | Tempo: 0,062 ms
+Run  6 -> Cover: 110   | Tempo: 0,080 ms
+Run  7 -> Cover: 106   | Tempo: 0,107 ms
+Run  8 -> Cover: 106   | Tempo: 0,073 ms
+Run  9 -> Cover: 106   | Tempo: 0,068 ms
+Run 10 -> Cover: 104   | Tempo: 0,074 ms
+==  Greedy Max-Degree   ==
+Run  1 -> Cover: 61    | Tempo: 0,154 ms
+Run  2 -> Cover: 61    | Tempo: 0,151 ms
+Run  3 -> Cover: 61    | Tempo: 0,117 ms
+Run  4 -> Cover: 61    | Tempo: 0,154 ms
+Run  5 -> Cover: 61    | Tempo: 0,125 ms
+Run  6 -> Cover: 61    | Tempo: 0,115 ms
+Run  7 -> Cover: 61    | Tempo: 0,103 ms
+Run  8 -> Cover: 61    | Tempo: 0,106 ms
+Run  9 -> Cover: 61    | Tempo: 0,108 ms
+Run 10 -> Cover: 61    | Tempo: 0,098 ms
+
+Resultados Consolidados:
+Maximal Matching     -> Cobertura Média: 105,20 [Mín:  102 | Máx:  110] | Tempo Médio:   0,082 ms
+Greedy Max-Degree    -> Cobertura Média:  61,00 [Mín:   61 | Máx:   61] | Tempo Médio:   0,123 ms
+
+>> Instância: Grafo em Linha/Caminho (V=1000, E=999), |C*|=500
+==  Maximal Matching   ==
+Run  1 -> Cover: 860   | Tempo: 1,617 ms
+Run  2 -> Cover: 868   | Tempo: 0,916 ms
+Run  3 -> Cover: 870   | Tempo: 0,853 ms
+Run  4 -> Cover: 858   | Tempo: 0,718 ms
+Run  5 -> Cover: 872   | Tempo: 0,550 ms
+Run  6 -> Cover: 860   | Tempo: 0,640 ms
+Run  7 -> Cover: 856   | Tempo: 0,625 ms
+Run  8 -> Cover: 858   | Tempo: 0,534 ms
+Run  9 -> Cover: 862   | Tempo: 0,549 ms
+Run 10 -> Cover: 866   | Tempo: 0,443 ms
+==  Greedy Max-Degree   ==
+Run  1 -> Cover: 500   | Tempo: 12,978 ms
+Run  2 -> Cover: 500   | Tempo: 12,610 ms
+Run  3 -> Cover: 500   | Tempo: 8,398 ms
+Run  4 -> Cover: 500   | Tempo: 0,966 ms
+Run  5 -> Cover: 500   | Tempo: 0,888 ms
+Run  6 -> Cover: 500   | Tempo: 0,744 ms
+Run  7 -> Cover: 500   | Tempo: 0,690 ms
+Run  8 -> Cover: 500   | Tempo: 0,801 ms
+Run  9 -> Cover: 500   | Tempo: 0,606 ms
+Run 10 -> Cover: 500   | Tempo: 0,603 ms
+
+Resultados Consolidados:
+Maximal Matching     -> Cobertura Média: 863,00 [Mín:  856 | Máx:  872] | Tempo Médio:   0,745 ms
+Greedy Max-Degree    -> Cobertura Média: 500,00 [Mín:  500 | Máx:  500] | Tempo Médio:   3,928 ms
+
+>> Instância: Grafo em Linha/Caminho (V=5000, E=4999), |C*|=2500
+==  Maximal Matching   ==
+Run  1 -> Cover: 4308  | Tempo: 1,943 ms
+Run  2 -> Cover: 4330  | Tempo: 1,473 ms
+Run  3 -> Cover: 4318  | Tempo: 1,710 ms
+Run  4 -> Cover: 4338  | Tempo: 1,722 ms
+Run  5 -> Cover: 4328  | Tempo: 2,112 ms
+Run  6 -> Cover: 4336  | Tempo: 2,292 ms
+Run  7 -> Cover: 4310  | Tempo: 1,829 ms
+Run  8 -> Cover: 4346  | Tempo: 1,566 ms
+Run  9 -> Cover: 4326  | Tempo: 1,897 ms
+Run 10 -> Cover: 4292  | Tempo: 2,493 ms
+==  Greedy Max-Degree   ==
+Run  1 -> Cover: 2500  | Tempo: 20,018 ms
+Run  2 -> Cover: 2500  | Tempo: 21,072 ms
+Run  3 -> Cover: 2500  | Tempo: 21,653 ms
+Run  4 -> Cover: 2500  | Tempo: 21,168 ms
+Run  5 -> Cover: 2500  | Tempo: 19,812 ms
+Run  6 -> Cover: 2500  | Tempo: 17,949 ms
+Run  7 -> Cover: 2500  | Tempo: 17,356 ms
+Run  8 -> Cover: 2500  | Tempo: 18,874 ms
+Run  9 -> Cover: 2500  | Tempo: 19,341 ms
+Run 10 -> Cover: 2500  | Tempo: 15,363 ms
+
+Resultados Consolidados:
+Maximal Matching     -> Cobertura Média: 4323,20 [Mín: 4292 | Máx: 4346] | Tempo Médio:   1,904 ms
+Greedy Max-Degree    -> Cobertura Média: 2500,00 [Mín: 2500 | Máx: 2500] | Tempo Médio:  19,261 ms
+
+
+--------------------------------------------------------------------------------
+GRAFO LATTICE
+--------------------------------------------------------------------------------
+>> Instância: Grafo Lattice (V=9, W=3, H=3), |C*|=4
+==  Maximal Matching   ==
+Run  1 -> Cover: 8     | Tempo: 0,065 ms
+Run  2 -> Cover: 8     | Tempo: 0,044 ms
+Run  3 -> Cover: 8     | Tempo: 0,010 ms
+Run  4 -> Cover: 8     | Tempo: 0,005 ms
+Run  5 -> Cover: 8     | Tempo: 0,005 ms
+Run  6 -> Cover: 8     | Tempo: 0,021 ms
+Run  7 -> Cover: 8     | Tempo: 0,005 ms
+Run  8 -> Cover: 8     | Tempo: 0,005 ms
+Run  9 -> Cover: 6     | Tempo: 0,005 ms
+Run 10 -> Cover: 8     | Tempo: 0,005 ms
+==  Greedy Max-Degree   ==
+Run  1 -> Cover: 5     | Tempo: 0,005 ms
+Run  2 -> Cover: 5     | Tempo: 0,001 ms
+Run  3 -> Cover: 5     | Tempo: 0,001 ms
+Run  4 -> Cover: 5     | Tempo: 0,001 ms
+Run  5 -> Cover: 5     | Tempo: 0,001 ms
+Run  6 -> Cover: 5     | Tempo: 0,001 ms
+Run  7 -> Cover: 5     | Tempo: 0,001 ms
+Run  8 -> Cover: 5     | Tempo: 0,001 ms
+Run  9 -> Cover: 5     | Tempo: 0,001 ms
+Run 10 -> Cover: 5     | Tempo: 0,001 ms
+
+Resultados Consolidados:
+Maximal Matching     -> Cobertura Média:   7,80 [Mín:    6 | Máx:    8] | Tempo Médio:   0,017 ms
+Greedy Max-Degree    -> Cobertura Média:   5,00 [Mín:    5 | Máx:    5] | Tempo Médio:   0,001 ms
+
+>> Instância: Grafo Lattice (V=12, W=4, H=3), |C*|=6
+==  Maximal Matching   ==
+Run  1 -> Cover: 12    | Tempo: 0,026 ms
+Run  2 -> Cover: 10    | Tempo: 0,005 ms
+Run  3 -> Cover: 12    | Tempo: 0,003 ms
+Run  4 -> Cover: 10    | Tempo: 0,003 ms
+Run  5 -> Cover: 12    | Tempo: 0,003 ms
+Run  6 -> Cover: 12    | Tempo: 0,003 ms
+Run  7 -> Cover: 10    | Tempo: 0,003 ms
+Run  8 -> Cover: 12    | Tempo: 0,004 ms
+Run  9 -> Cover: 12    | Tempo: 0,003 ms
+Run 10 -> Cover: 12    | Tempo: 0,003 ms
+==  Greedy Max-Degree   ==
+Run  1 -> Cover: 6     | Tempo: 0,007 ms
+Run  2 -> Cover: 6     | Tempo: 0,002 ms
+Run  3 -> Cover: 6     | Tempo: 0,019 ms
+Run  4 -> Cover: 6     | Tempo: 0,002 ms
+Run  5 -> Cover: 6     | Tempo: 0,002 ms
+Run  6 -> Cover: 6     | Tempo: 0,002 ms
+Run  7 -> Cover: 6     | Tempo: 0,002 ms
+Run  8 -> Cover: 6     | Tempo: 0,002 ms
+Run  9 -> Cover: 6     | Tempo: 0,002 ms
+Run 10 -> Cover: 6     | Tempo: 0,002 ms
+
+Resultados Consolidados:
+Maximal Matching     -> Cobertura Média:  11,40 [Mín:   10 | Máx:   12] | Tempo Médio:   0,005 ms
+Greedy Max-Degree    -> Cobertura Média:   6,00 [Mín:    6 | Máx:    6] | Tempo Médio:   0,004 ms
+
+>> Instância: Grafo Lattice (V=100, W=10, H=10), |C*|=50
+==  Maximal Matching   ==
+Run  1 -> Cover: 88    | Tempo: 0,033 ms
+Run  2 -> Cover: 90    | Tempo: 0,020 ms
+Run  3 -> Cover: 90    | Tempo: 0,132 ms
+Run  4 -> Cover: 92    | Tempo: 0,017 ms
+Run  5 -> Cover: 86    | Tempo: 0,014 ms
+Run  6 -> Cover: 90    | Tempo: 0,016 ms
+Run  7 -> Cover: 88    | Tempo: 0,025 ms
+Run  8 -> Cover: 90    | Tempo: 0,015 ms
+Run  9 -> Cover: 90    | Tempo: 0,016 ms
+Run 10 -> Cover: 86    | Tempo: 0,018 ms
+==  Greedy Max-Degree   ==
+Run  1 -> Cover: 50    | Tempo: 0,021 ms
+Run  2 -> Cover: 50    | Tempo: 0,017 ms
+Run  3 -> Cover: 50    | Tempo: 0,025 ms
+Run  4 -> Cover: 50    | Tempo: 0,015 ms
+Run  5 -> Cover: 50    | Tempo: 0,014 ms
+Run  6 -> Cover: 50    | Tempo: 0,023 ms
+Run  7 -> Cover: 50    | Tempo: 0,019 ms
+Run  8 -> Cover: 50    | Tempo: 0,020 ms
+Run  9 -> Cover: 50    | Tempo: 0,024 ms
+Run 10 -> Cover: 50    | Tempo: 0,024 ms
+
+Resultados Consolidados:
+Maximal Matching     -> Cobertura Média:  89,00 [Mín:   86 | Máx:   92] | Tempo Médio:   0,031 ms
+Greedy Max-Degree    -> Cobertura Média:  50,00 [Mín:   50 | Máx:   50] | Tempo Médio:   0,020 ms
+
+>> Instância: Grafo Lattice (V=225, W=15, H=15), |C*|=112
+==  Maximal Matching   ==
+Run  1 -> Cover: 210   | Tempo: 0,128 ms
+Run  2 -> Cover: 204   | Tempo: 0,055 ms
+Run  3 -> Cover: 204   | Tempo: 0,062 ms
+Run  4 -> Cover: 200   | Tempo: 0,079 ms
+Run  5 -> Cover: 202   | Tempo: 0,169 ms
+Run  6 -> Cover: 210   | Tempo: 0,116 ms
+Run  7 -> Cover: 204   | Tempo: 0,081 ms
+Run  8 -> Cover: 202   | Tempo: 0,060 ms
+Run  9 -> Cover: 208   | Tempo: 0,076 ms
+Run 10 -> Cover: 204   | Tempo: 0,062 ms
+==  Greedy Max-Degree   ==
+Run  1 -> Cover: 113   | Tempo: 0,092 ms
+Run  2 -> Cover: 113   | Tempo: 0,083 ms
+Run  3 -> Cover: 113   | Tempo: 0,083 ms
+Run  4 -> Cover: 113   | Tempo: 0,096 ms
+Run  5 -> Cover: 113   | Tempo: 0,086 ms
+Run  6 -> Cover: 113   | Tempo: 0,080 ms
+Run  7 -> Cover: 113   | Tempo: 0,073 ms
+Run  8 -> Cover: 113   | Tempo: 0,056 ms
+Run  9 -> Cover: 113   | Tempo: 0,052 ms
+Run 10 -> Cover: 113   | Tempo: 0,051 ms
+
+Resultados Consolidados:
+Maximal Matching     -> Cobertura Média: 204,80 [Mín:  200 | Máx:  210] | Tempo Médio:   0,089 ms
+Greedy Max-Degree    -> Cobertura Média: 113,00 [Mín:  113 | Máx:  113] | Tempo Médio:   0,075 ms
+
+>> Instância: Grafo Lattice (V=10000, W=100, H=100), |C*|=5000
+==  Maximal Matching   ==
+Run  1 -> Cover: 9072  | Tempo: 5,135 ms
+Run  2 -> Cover: 9070  | Tempo: 5,961 ms
+Run  3 -> Cover: 9060  | Tempo: 4,829 ms
+Run  4 -> Cover: 9072  | Tempo: 4,413 ms
+Run  5 -> Cover: 9108  | Tempo: 4,350 ms
+Run  6 -> Cover: 9094  | Tempo: 3,995 ms
+Run  7 -> Cover: 9068  | Tempo: 2,985 ms
+Run  8 -> Cover: 9072  | Tempo: 4,602 ms
+Run  9 -> Cover: 9038  | Tempo: 3,190 ms
+Run 10 -> Cover: 9098  | Tempo: 2,820 ms
+==  Greedy Max-Degree   ==
+Run  1 -> Cover: 5000  | Tempo: 189,750 ms
+Run  2 -> Cover: 5000  | Tempo: 161,538 ms
+Run  3 -> Cover: 5000  | Tempo: 172,248 ms
+Run  4 -> Cover: 5000  | Tempo: 161,371 ms
+Run  5 -> Cover: 5000  | Tempo: 152,877 ms
+Run  6 -> Cover: 5000  | Tempo: 154,352 ms
+Run  7 -> Cover: 5000  | Tempo: 153,607 ms
+Run  8 -> Cover: 5000  | Tempo: 147,603 ms
+Run  9 -> Cover: 5000  | Tempo: 147,491 ms
+Run 10 -> Cover: 5000  | Tempo: 149,341 ms
+
+Resultados Consolidados:
+Maximal Matching     -> Cobertura Média: 9075,20 [Mín: 9038 | Máx: 9108] | Tempo Médio:   4,228 ms
+Greedy Max-Degree    -> Cobertura Média: 5000,00 [Mín: 5000 | Máx: 5000] | Tempo Médio: 159,018 ms
+
+>> Instância: Grafo Lattice (V=1200, W=40, H=30), |C*|=600
+==  Maximal Matching   ==
+Run  1 -> Cover: 1084  | Tempo: 0,424 ms
+Run  2 -> Cover: 1076  | Tempo: 0,227 ms
+Run  3 -> Cover: 1092  | Tempo: 0,183 ms
+Run  4 -> Cover: 1078  | Tempo: 0,194 ms
+Run  5 -> Cover: 1072  | Tempo: 0,094 ms
+Run  6 -> Cover: 1088  | Tempo: 0,098 ms
+Run  7 -> Cover: 1094  | Tempo: 0,093 ms
+Run  8 -> Cover: 1090  | Tempo: 0,173 ms
+Run  9 -> Cover: 1082  | Tempo: 0,088 ms
+Run 10 -> Cover: 1084  | Tempo: 0,088 ms
+==  Greedy Max-Degree   ==
+Run  1 -> Cover: 600   | Tempo: 1,588 ms
+Run  2 -> Cover: 600   | Tempo: 1,582 ms
+Run  3 -> Cover: 600   | Tempo: 1,600 ms
+Run  4 -> Cover: 600   | Tempo: 1,570 ms
+Run  5 -> Cover: 600   | Tempo: 1,580 ms
+Run  6 -> Cover: 600   | Tempo: 1,577 ms
+Run  7 -> Cover: 600   | Tempo: 1,571 ms
+Run  8 -> Cover: 600   | Tempo: 1,577 ms
+Run  9 -> Cover: 600   | Tempo: 2,141 ms
+Run 10 -> Cover: 600   | Tempo: 1,596 ms
+
+Resultados Consolidados:
+Maximal Matching     -> Cobertura Média: 1084,00 [Mín: 1072 | Máx: 1094] | Tempo Médio:   0,166 ms
+Greedy Max-Degree    -> Cobertura Média: 600,00 [Mín:  600 | Máx:  600] | Tempo Médio:   1,638 ms
+
+>> Instância: Grafo Lattice (V=120000, W=400, H=300), |C*|=60000
+==  Maximal Matching   ==
+Run  1 -> Cover: 108900 | Tempo: 89,851 ms
+Run  2 -> Cover: 108744 | Tempo: 43,531 ms
+Run  3 -> Cover: 108836 | Tempo: 78,134 ms
+Run  4 -> Cover: 108902 | Tempo: 32,176 ms
+Run  5 -> Cover: 108810 | Tempo: 32,719 ms
+Run  6 -> Cover: 108846 | Tempo: 40,556 ms
+Run  7 -> Cover: 108892 | Tempo: 94,304 ms
+Run  8 -> Cover: 108700 | Tempo: 43,794 ms
+Run  9 -> Cover: 108820 | Tempo: 36,569 ms
+Run 10 -> Cover: 108864 | Tempo: 37,432 ms
+==  Greedy Max-Degree   ==
+Run  1 -> Cover: 60000 | Tempo: 36497,470 ms
+Run  2 -> Cover: 60000 | Tempo: 35494,534 ms
+Run  3 -> Cover: 60000 | Tempo: 35495,673 ms
+Run  4 -> Cover: 60000 | Tempo: 36514,776 ms
+Run  5 -> Cover: 60000 | Tempo: 36693,062 ms
+Run  6 -> Cover: 60000 | Tempo: 36308,300 ms
+Run  7 -> Cover: 60000 | Tempo: 36964,480 ms
+Run  8 -> Cover: 60000 | Tempo: 35621,420 ms
+Run  9 -> Cover: 60000 | Tempo: 34254,376 ms
+Run 10 -> Cover: 60000 | Tempo: 32382,399 ms
+
+Resultados Consolidados:
+Maximal Matching     -> Cobertura Média: 108831,40 [Mín: 108700 | Máx: 108902] | Tempo Médio:  52,906 ms
+Greedy Max-Degree    -> Cobertura Média: 60000,00 [Mín: 60000 | Máx: 60000] | Tempo Médio: 35622,649 ms
+
+
+--------------------------------------------------------------------------------
+GRAFO BIPARTIDO EM CAMADAS
+--------------------------------------------------------------------------------
+>> Instância: Grafo Bipartido em Camadas [U com Ids menores] (V=15, E=21, nLayers=5, |U|=5, |W|=10), |C*|=5
+==  Maximal Matching   ==
+Run  1 -> Cover: 10    | Tempo: 0,065 ms
+Run  2 -> Cover: 10    | Tempo: 0,003 ms
+Run  3 -> Cover: 10    | Tempo: 0,002 ms
+Run  4 -> Cover: 10    | Tempo: 0,010 ms
+Run  5 -> Cover: 10    | Tempo: 0,006 ms
+Run  6 -> Cover: 10    | Tempo: 0,006 ms
+Run  7 -> Cover: 10    | Tempo: 0,005 ms
+Run  8 -> Cover: 10    | Tempo: 0,004 ms
+Run  9 -> Cover: 10    | Tempo: 0,004 ms
+Run 10 -> Cover: 10    | Tempo: 0,005 ms
+==  Greedy Max-Degree   ==
+Run  1 -> Cover: 5     | Tempo: 0,004 ms
+Run  2 -> Cover: 5     | Tempo: 0,002 ms
+Run  3 -> Cover: 5     | Tempo: 0,002 ms
+Run  4 -> Cover: 5     | Tempo: 0,001 ms
+Run  5 -> Cover: 5     | Tempo: 0,001 ms
+Run  6 -> Cover: 5     | Tempo: 0,001 ms
+Run  7 -> Cover: 5     | Tempo: 0,001 ms
+Run  8 -> Cover: 5     | Tempo: 0,001 ms
+Run  9 -> Cover: 5     | Tempo: 0,001 ms
+Run 10 -> Cover: 5     | Tempo: 0,001 ms
+
+Resultados Consolidados:
+Maximal Matching     -> Cobertura Média:  10,00 [Mín:   10 | Máx:   10] | Tempo Médio:   0,011 ms
+Greedy Max-Degree    -> Cobertura Média:   5,00 [Mín:    5 | Máx:    5] | Tempo Médio:   0,001 ms
+
+>> Instância: Grafo Bipartido em Camadas [U com Ids maiores] (V=15, E=21, nLayers=5, |U|=5, |W|=10), |C*|=5
+==  Maximal Matching   ==
+Run  1 -> Cover: 10    | Tempo: 0,004 ms
+Run  2 -> Cover: 10    | Tempo: 0,002 ms
+Run  3 -> Cover: 10    | Tempo: 0,002 ms
+Run  4 -> Cover: 10    | Tempo: 0,003 ms
+Run  5 -> Cover: 10    | Tempo: 0,002 ms
+Run  6 -> Cover: 10    | Tempo: 0,002 ms
+Run  7 -> Cover: 10    | Tempo: 0,002 ms
+Run  8 -> Cover: 10    | Tempo: 0,002 ms
+Run  9 -> Cover: 10    | Tempo: 0,002 ms
+Run 10 -> Cover: 10    | Tempo: 0,002 ms
+==  Greedy Max-Degree   ==
+Run  1 -> Cover: 10    | Tempo: 0,003 ms
+Run  2 -> Cover: 10    | Tempo: 0,001 ms
+Run  3 -> Cover: 10    | Tempo: 0,001 ms
+Run  4 -> Cover: 10    | Tempo: 0,001 ms
+Run  5 -> Cover: 10    | Tempo: 0,002 ms
+Run  6 -> Cover: 10    | Tempo: 0,001 ms
+Run  7 -> Cover: 10    | Tempo: 0,001 ms
+Run  8 -> Cover: 10    | Tempo: 0,001 ms
+Run  9 -> Cover: 10    | Tempo: 0,001 ms
+Run 10 -> Cover: 10    | Tempo: 0,001 ms
+
+Resultados Consolidados:
+Maximal Matching     -> Cobertura Média:  10,00 [Mín:   10 | Máx:   10] | Tempo Médio:   0,002 ms
+Greedy Max-Degree    -> Cobertura Média:  10,00 [Mín:   10 | Máx:   10] | Tempo Médio:   0,001 ms
+
+>> Instância: Grafo Bipartido em Camadas [U com Ids menores] (V=582, E=8299, nLayers=100, |U|=100, |W|=482), |C*|=100
+==  Maximal Matching   ==
+Run  1 -> Cover: 200   | Tempo: 0,388 ms
+Run  2 -> Cover: 200   | Tempo: 0,193 ms
+Run  3 -> Cover: 200   | Tempo: 0,176 ms
+Run  4 -> Cover: 200   | Tempo: 0,172 ms
+Run  5 -> Cover: 200   | Tempo: 0,173 ms
+Run  6 -> Cover: 200   | Tempo: 0,170 ms
+Run  7 -> Cover: 200   | Tempo: 0,172 ms
+Run  8 -> Cover: 200   | Tempo: 0,172 ms
+Run  9 -> Cover: 200   | Tempo: 0,183 ms
+Run 10 -> Cover: 200   | Tempo: 0,175 ms
+==  Greedy Max-Degree   ==
+Run  1 -> Cover: 100   | Tempo: 0,881 ms
+Run  2 -> Cover: 100   | Tempo: 0,889 ms
+Run  3 -> Cover: 100   | Tempo: 0,878 ms
+Run  4 -> Cover: 100   | Tempo: 0,991 ms
+Run  5 -> Cover: 100   | Tempo: 0,952 ms
+Run  6 -> Cover: 100   | Tempo: 0,900 ms
+Run  7 -> Cover: 100   | Tempo: 0,882 ms
+Run  8 -> Cover: 100   | Tempo: 0,888 ms
+Run  9 -> Cover: 100   | Tempo: 0,891 ms
+Run 10 -> Cover: 100   | Tempo: 0,899 ms
+
+Resultados Consolidados:
+Maximal Matching     -> Cobertura Média: 200,00 [Mín:  200 | Máx:  200] | Tempo Médio:   0,197 ms
+Greedy Max-Degree    -> Cobertura Média: 100,00 [Mín:  100 | Máx:  100] | Tempo Médio:   0,905 ms
+
+>> Instância: Grafo Bipartido em Camadas [U com Ids maiores] (V=582, E=8299, nLayers=100, |U|=100, |W|=482), |C*|=100
+==  Maximal Matching   ==
+Run  1 -> Cover: 200   | Tempo: 0,381 ms
+Run  2 -> Cover: 200   | Tempo: 0,320 ms
+Run  3 -> Cover: 200   | Tempo: 0,245 ms
+Run  4 -> Cover: 200   | Tempo: 0,304 ms
+Run  5 -> Cover: 200   | Tempo: 0,370 ms
+Run  6 -> Cover: 200   | Tempo: 0,304 ms
+Run  7 -> Cover: 200   | Tempo: 0,305 ms
+Run  8 -> Cover: 200   | Tempo: 0,293 ms
+Run  9 -> Cover: 200   | Tempo: 0,212 ms
+Run 10 -> Cover: 200   | Tempo: 0,152 ms
+==  Greedy Max-Degree   ==
+Run  1 -> Cover: 482   | Tempo: 4,077 ms
+Run  2 -> Cover: 482   | Tempo: 4,171 ms
+Run  3 -> Cover: 482   | Tempo: 4,187 ms
+Run  4 -> Cover: 482   | Tempo: 4,314 ms
+Run  5 -> Cover: 482   | Tempo: 4,414 ms
+Run  6 -> Cover: 482   | Tempo: 4,432 ms
+Run  7 -> Cover: 482   | Tempo: 4,507 ms
+Run  8 -> Cover: 482   | Tempo: 4,511 ms
+Run  9 -> Cover: 482   | Tempo: 4,514 ms
+Run 10 -> Cover: 482   | Tempo: 4,517 ms
+
+Resultados Consolidados:
+Maximal Matching     -> Cobertura Média: 200,00 [Mín:  200 | Máx:  200] | Tempo Médio:   0,289 ms
+Greedy Max-Degree    -> Cobertura Média: 482,00 [Mín:  482 | Máx:  482] | Tempo Médio:   4,364 ms
+
+>> Instância: Grafo Bipartido em Camadas [U com Ids menores] (V=8069, E=823081, nLayers=1000, |U|=1000, |W|=7069), |C*|=1000
+==  Maximal Matching   ==
+Run  1 -> Cover: 2000  | Tempo: 55,326 ms
+Run  2 -> Cover: 2000  | Tempo: 61,348 ms
+Run  3 -> Cover: 2000  | Tempo: 144,553 ms
+Run  4 -> Cover: 2000  | Tempo: 47,224 ms
+Run  5 -> Cover: 2000  | Tempo: 55,903 ms
+Run  6 -> Cover: 2000  | Tempo: 65,385 ms
+Run  7 -> Cover: 2000  | Tempo: 93,743 ms
+Run  8 -> Cover: 2000  | Tempo: 43,481 ms
+Run  9 -> Cover: 2000  | Tempo: 53,922 ms
+Run 10 -> Cover: 2000  | Tempo: 43,970 ms
+==  Greedy Max-Degree   ==
+Run  1 -> Cover: 1000  | Tempo: 1746,756 ms
+Run  2 -> Cover: 1000  | Tempo: 1713,276 ms
+Run  3 -> Cover: 1000  | Tempo: 1738,618 ms
+Run  4 -> Cover: 1000  | Tempo: 1732,767 ms
+Run  5 -> Cover: 1000  | Tempo: 1754,247 ms
+Run  6 -> Cover: 1000  | Tempo: 1772,758 ms
+Run  7 -> Cover: 1000  | Tempo: 1740,497 ms
+Run  8 -> Cover: 1000  | Tempo: 1780,369 ms
+Run  9 -> Cover: 1000  | Tempo: 1722,583 ms
+Run 10 -> Cover: 1000  | Tempo: 1716,556 ms
+
+Resultados Consolidados:
+Maximal Matching     -> Cobertura Média: 2000,00 [Mín: 2000 | Máx: 2000] | Tempo Médio:  66,485 ms
+Greedy Max-Degree    -> Cobertura Média: 1000,00 [Mín: 1000 | Máx: 1000] | Tempo Médio: 1741,843 ms
+
+>> Instância: Grafo Bipartido em Camadas [U com Ids maiores] (V=8069, E=823081, nLayers=1000, |U|=1000, |W|=7069), |C*|=1000
+==  Maximal Matching   ==
+Run  1 -> Cover: 2000  | Tempo: 68,139 ms
+Run  2 -> Cover: 2000  | Tempo: 146,250 ms
+Run  3 -> Cover: 2000  | Tempo: 63,581 ms
+Run  4 -> Cover: 2000  | Tempo: 51,875 ms
+Run  5 -> Cover: 2000  | Tempo: 81,875 ms
+Run  6 -> Cover: 2000  | Tempo: 52,677 ms
+Run  7 -> Cover: 2000  | Tempo: 45,502 ms
+Run  8 -> Cover: 2000  | Tempo: 44,840 ms
+Run  9 -> Cover: 2000  | Tempo: 46,501 ms
+Run 10 -> Cover: 2000  | Tempo: 57,894 ms
+==  Greedy Max-Degree   ==
+Run  1 -> Cover: 7069  | Tempo: 11598,322 ms
+Run  2 -> Cover: 7069  | Tempo: 11581,353 ms
+Run  3 -> Cover: 7069  | Tempo: 11602,632 ms
+Run  4 -> Cover: 7069  | Tempo: 11602,693 ms
+Run  5 -> Cover: 7069  | Tempo: 11799,159 ms
+Run  6 -> Cover: 7069  | Tempo: 13056,748 ms
+Run  7 -> Cover: 7069  | Tempo: 11955,508 ms
+Run  8 -> Cover: 7069  | Tempo: 11693,044 ms
+Run  9 -> Cover: 7069  | Tempo: 11632,108 ms
+Run 10 -> Cover: 7069  | Tempo: 11908,453 ms
+
+Resultados Consolidados:
+Maximal Matching     -> Cobertura Média: 2000,00 [Mín: 2000 | Máx: 2000] | Tempo Médio:  65,914 ms
+Greedy Max-Degree    -> Cobertura Média: 7069,00 [Mín: 7069 | Máx: 7069] | Tempo Médio: 11843,002 ms
+
+
+--------------------------------------------------------------------------------
+GRAFO COMPLETO
+--------------------------------------------------------------------------------
+>> Instância: Grafo Completo (V=5, E=10), |C*|=4
+==  Maximal Matching   ==
+Run  1 -> Cover: 4     | Tempo: 0,009 ms
+Run  2 -> Cover: 4     | Tempo: 0,002 ms
+Run  3 -> Cover: 4     | Tempo: 0,001 ms
+Run  4 -> Cover: 4     | Tempo: 0,001 ms
+Run  5 -> Cover: 4     | Tempo: 0,001 ms
+Run  6 -> Cover: 4     | Tempo: 0,001 ms
+Run  7 -> Cover: 4     | Tempo: 0,001 ms
+Run  8 -> Cover: 4     | Tempo: 0,002 ms
+Run  9 -> Cover: 4     | Tempo: 0,001 ms
+Run 10 -> Cover: 4     | Tempo: 0,001 ms
+==  Greedy Max-Degree   ==
+Run  1 -> Cover: 4     | Tempo: 0,002 ms
+Run  2 -> Cover: 4     | Tempo: 0,001 ms
+Run  3 -> Cover: 4     | Tempo: 0,000 ms
+Run  4 -> Cover: 4     | Tempo: 0,001 ms
+Run  5 -> Cover: 4     | Tempo: 0,001 ms
+Run  6 -> Cover: 4     | Tempo: 0,001 ms
+Run  7 -> Cover: 4     | Tempo: 0,001 ms
+Run  8 -> Cover: 4     | Tempo: 0,001 ms
+Run  9 -> Cover: 4     | Tempo: 0,001 ms
+Run 10 -> Cover: 4     | Tempo: 0,001 ms
+
+Resultados Consolidados:
+Maximal Matching     -> Cobertura Média:   4,00 [Mín:    4 | Máx:    4] | Tempo Médio:   0,002 ms
+Greedy Max-Degree    -> Cobertura Média:   4,00 [Mín:    4 | Máx:    4] | Tempo Médio:   0,001 ms
+
+>> Instância: Grafo Completo (V=10, E=45), |C*|=9
+==  Maximal Matching   ==
+Run  1 -> Cover: 10    | Tempo: 0,005 ms
+Run  2 -> Cover: 10    | Tempo: 0,003 ms
+Run  3 -> Cover: 10    | Tempo: 0,002 ms
+Run  4 -> Cover: 10    | Tempo: 0,002 ms
+Run  5 -> Cover: 10    | Tempo: 0,002 ms
+Run  6 -> Cover: 10    | Tempo: 0,021 ms
+Run  7 -> Cover: 10    | Tempo: 0,003 ms
+Run  8 -> Cover: 10    | Tempo: 0,004 ms
+Run  9 -> Cover: 10    | Tempo: 0,003 ms
+Run 10 -> Cover: 10    | Tempo: 0,003 ms
+==  Greedy Max-Degree   ==
+Run  1 -> Cover: 9     | Tempo: 0,002 ms
+Run  2 -> Cover: 9     | Tempo: 0,002 ms
+Run  3 -> Cover: 9     | Tempo: 0,015 ms
+Run  4 -> Cover: 9     | Tempo: 0,001 ms
+Run  5 -> Cover: 9     | Tempo: 0,001 ms
+Run  6 -> Cover: 9     | Tempo: 0,001 ms
+Run  7 -> Cover: 9     | Tempo: 0,001 ms
+Run  8 -> Cover: 9     | Tempo: 0,001 ms
+Run  9 -> Cover: 9     | Tempo: 0,001 ms
+Run 10 -> Cover: 9     | Tempo: 0,001 ms
+
+Resultados Consolidados:
+Maximal Matching     -> Cobertura Média:  10,00 [Mín:   10 | Máx:   10] | Tempo Médio:   0,005 ms
+Greedy Max-Degree    -> Cobertura Média:   9,00 [Mín:    9 | Máx:    9] | Tempo Médio:   0,003 ms
+
+>> Instância: Grafo Completo (V=100, E=4950), |C*|=99
+==  Maximal Matching   ==
+Run  1 -> Cover: 100   | Tempo: 0,217 ms
+Run  2 -> Cover: 100   | Tempo: 0,098 ms
+Run  3 -> Cover: 100   | Tempo: 0,061 ms
+Run  4 -> Cover: 100   | Tempo: 0,061 ms
+Run  5 -> Cover: 100   | Tempo: 0,065 ms
+Run  6 -> Cover: 100   | Tempo: 0,068 ms
+Run  7 -> Cover: 100   | Tempo: 0,062 ms
+Run  8 -> Cover: 100   | Tempo: 0,064 ms
+Run  9 -> Cover: 100   | Tempo: 0,063 ms
+Run 10 -> Cover: 100   | Tempo: 0,064 ms
+==  Greedy Max-Degree   ==
+Run  1 -> Cover: 99    | Tempo: 0,515 ms
+Run  2 -> Cover: 99    | Tempo: 0,508 ms
+Run  3 -> Cover: 99    | Tempo: 0,521 ms
+Run  4 -> Cover: 99    | Tempo: 0,509 ms
+Run  5 -> Cover: 99    | Tempo: 0,515 ms
+Run  6 -> Cover: 99    | Tempo: 0,520 ms
+Run  7 -> Cover: 99    | Tempo: 0,516 ms
+Run  8 -> Cover: 99    | Tempo: 0,526 ms
+Run  9 -> Cover: 99    | Tempo: 0,523 ms
+Run 10 -> Cover: 99    | Tempo: 0,541 ms
+
+Resultados Consolidados:
+Maximal Matching     -> Cobertura Média: 100,00 [Mín:  100 | Máx:  100] | Tempo Médio:   0,082 ms
+Greedy Max-Degree    -> Cobertura Média:  99,00 [Mín:   99 | Máx:   99] | Tempo Médio:   0,519 ms
+
+>> Instância: Grafo Completo (V=123, E=7503), |C*|=122
+==  Maximal Matching   ==
+Run  1 -> Cover: 122   | Tempo: 0,241 ms
+Run  2 -> Cover: 122   | Tempo: 0,105 ms
+Run  3 -> Cover: 122   | Tempo: 0,105 ms
+Run  4 -> Cover: 122   | Tempo: 0,105 ms
+Run  5 -> Cover: 122   | Tempo: 0,105 ms
+Run  6 -> Cover: 122   | Tempo: 0,102 ms
+Run  7 -> Cover: 122   | Tempo: 0,114 ms
+Run  8 -> Cover: 122   | Tempo: 0,123 ms
+Run  9 -> Cover: 122   | Tempo: 0,105 ms
+Run 10 -> Cover: 122   | Tempo: 0,109 ms
+==  Greedy Max-Degree   ==
+Run  1 -> Cover: 122   | Tempo: 1,009 ms
+Run  2 -> Cover: 122   | Tempo: 1,009 ms
+Run  3 -> Cover: 122   | Tempo: 1,031 ms
+Run  4 -> Cover: 122   | Tempo: 1,027 ms
+Run  5 -> Cover: 122   | Tempo: 1,011 ms
+Run  6 -> Cover: 122   | Tempo: 1,022 ms
+Run  7 -> Cover: 122   | Tempo: 1,011 ms
+Run  8 -> Cover: 122   | Tempo: 1,030 ms
+Run  9 -> Cover: 122   | Tempo: 1,018 ms
+Run 10 -> Cover: 122   | Tempo: 1,041 ms
+
+Resultados Consolidados:
+Maximal Matching     -> Cobertura Média: 122,00 [Mín:  122 | Máx:  122] | Tempo Médio:   0,121 ms
+Greedy Max-Degree    -> Cobertura Média: 122,00 [Mín:  122 | Máx:  122] | Tempo Médio:   1,021 ms
+
+>> Instância: Grafo Completo (V=1000, E=499500), |C*|=999
+==  Maximal Matching   ==
+Run  1 -> Cover: 1000  | Tempo: 29,646 ms
+Run  2 -> Cover: 1000  | Tempo: 25,855 ms
+Run  3 -> Cover: 1000  | Tempo: 26,142 ms
+Run  4 -> Cover: 1000  | Tempo: 26,233 ms
+Run  5 -> Cover: 1000  | Tempo: 26,590 ms
+Run  6 -> Cover: 1000  | Tempo: 26,539 ms
+Run  7 -> Cover: 1000  | Tempo: 34,792 ms
+Run  8 -> Cover: 1000  | Tempo: 42,088 ms
+Run  9 -> Cover: 1000  | Tempo: 107,483 ms
+Run 10 -> Cover: 1000  | Tempo: 31,057 ms
+==  Greedy Max-Degree   ==
+Run  1 -> Cover: 999   | Tempo: 1081,155 ms
+Run  2 -> Cover: 999   | Tempo: 1068,916 ms
+Run  3 -> Cover: 999   | Tempo: 1076,076 ms
+Run  4 -> Cover: 999   | Tempo: 1185,347 ms
+Run  5 -> Cover: 999   | Tempo: 1075,037 ms
+Run  6 -> Cover: 999   | Tempo: 1101,199 ms
+Run  7 -> Cover: 999   | Tempo: 1063,586 ms
+Run  8 -> Cover: 999   | Tempo: 1073,571 ms
+Run  9 -> Cover: 999   | Tempo: 1153,156 ms
+Run 10 -> Cover: 999   | Tempo: 1079,560 ms
+
+Resultados Consolidados:
+Maximal Matching     -> Cobertura Média: 1000,00 [Mín: 1000 | Máx: 1000] | Tempo Médio:  37,642 ms
+Greedy Max-Degree    -> Cobertura Média: 999,00 [Mín:  999 | Máx:  999] | Tempo Médio: 1095,760 ms
+
+>> Instância: Grafo Completo (V=5000, E=12497500), |C*|=4999
+==  Maximal Matching   ==
+Run  1 -> Cover: 5000  | Tempo: 1825,805 ms
+Run  2 -> Cover: 5000  | Tempo: 1563,338 ms
+Run  3 -> Cover: 5000  | Tempo: 1793,167 ms
+Run  4 -> Cover: 5000  | Tempo: 1397,586 ms
+Run  5 -> Cover: 5000  | Tempo: 1984,017 ms
+Run  6 -> Cover: 5000  | Tempo: 1697,182 ms
+Run  7 -> Cover: 5000  | Tempo: 1478,730 ms
+Run  8 -> Cover: 5000  | Tempo: 1578,986 ms
+Run  9 -> Cover: 5000  | Tempo: 2177,945 ms
+Run 10 -> Cover: 5000  | Tempo: 1350,214 ms
+==  Greedy Max-Degree   ==
+Run  1 -> Cover: 4999  | Tempo: 136235,017 ms
+Run  2 -> Cover: 4999  | Tempo: 141456,694 ms
+Run  3 -> Cover: 4999  | Tempo: 140229,434 ms
+Run  4 -> Cover: 4999  | Tempo: 130434,376 ms
+Run  5 -> Cover: 4999  | Tempo: 131802,272 ms
+Run  6 -> Cover: 4999  | Tempo: 130065,937 ms
+Run  7 -> Cover: 4999  | Tempo: 128636,960 ms
+Run  8 -> Cover: 4999  | Tempo: 129769,220 ms
+Run  9 -> Cover: 4999  | Tempo: 129145,023 ms
+Run 10 -> Cover: 4999  | Tempo: 128777,850 ms
+
+Resultados Consolidados:
+Maximal Matching     -> Cobertura Média: 5000,00 [Mín: 5000 | Máx: 5000] | Tempo Médio: 1684,697 ms
+Greedy Max-Degree    -> Cobertura Média: 4999,00 [Mín: 4999 | Máx: 4999] | Tempo Médio: 132655,278 ms
+
+
+--------------------------------------------------------------------------------
+GRAFOS ALEATÓRIOS
+--------------------------------------------------------------------------------
+>> Instância: Aleatório Esparso (V=5, E=10)
+==  Maximal Matching   ==
+Run  1 -> Cover: 4     | Tempo: 0,071 ms
+Run  2 -> Cover: 4     | Tempo: 0,003 ms
+Run  3 -> Cover: 4     | Tempo: 0,002 ms
+Run  4 -> Cover: 4     | Tempo: 0,002 ms
+Run  5 -> Cover: 4     | Tempo: 0,002 ms
+Run  6 -> Cover: 4     | Tempo: 0,002 ms
+Run  7 -> Cover: 4     | Tempo: 0,005 ms
+Run  8 -> Cover: 4     | Tempo: 0,002 ms
+Run  9 -> Cover: 4     | Tempo: 0,002 ms
+Run 10 -> Cover: 4     | Tempo: 0,002 ms
+==  Greedy Max-Degree   ==
+Run  1 -> Cover: 4     | Tempo: 6,056 ms
+Run  2 -> Cover: 4     | Tempo: 0,052 ms
+Run  3 -> Cover: 4     | Tempo: 0,013 ms
+Run  4 -> Cover: 4     | Tempo: 0,015 ms
+Run  5 -> Cover: 4     | Tempo: 0,012 ms
+Run  6 -> Cover: 4     | Tempo: 0,013 ms
+Run  7 -> Cover: 4     | Tempo: 0,050 ms
+Run  8 -> Cover: 4     | Tempo: 0,013 ms
+Run  9 -> Cover: 4     | Tempo: 0,005 ms
+Run 10 -> Cover: 4     | Tempo: 0,006 ms
+
+Resultados Consolidados:
+Maximal Matching     -> Cobertura Média:   4,00 [Mín:    4 | Máx:    4] | Tempo Médio:   0,009 ms
+Greedy Max-Degree    -> Cobertura Média:   4,00 [Mín:    4 | Máx:    4] | Tempo Médio:   0,623 ms
+
+>> Instância: Aleatório Denso (V=5, E=2)
+==  Maximal Matching   ==
+Run  1 -> Cover: 2     | Tempo: 0,005 ms
+Run  2 -> Cover: 2     | Tempo: 0,002 ms
+Run  3 -> Cover: 2     | Tempo: 0,001 ms
+Run  4 -> Cover: 2     | Tempo: 0,001 ms
+Run  5 -> Cover: 2     | Tempo: 0,001 ms
+Run  6 -> Cover: 2     | Tempo: 0,001 ms
+Run  7 -> Cover: 2     | Tempo: 0,001 ms
+Run  8 -> Cover: 2     | Tempo: 0,009 ms
+Run  9 -> Cover: 2     | Tempo: 0,001 ms
+Run 10 -> Cover: 2     | Tempo: 0,002 ms
+==  Greedy Max-Degree   ==
+Run  1 -> Cover: 1     | Tempo: 0,020 ms
+Run  2 -> Cover: 1     | Tempo: 0,002 ms
+Run  3 -> Cover: 1     | Tempo: 0,011 ms
+Run  4 -> Cover: 1     | Tempo: 0,002 ms
+Run  5 -> Cover: 1     | Tempo: 0,002 ms
+Run  6 -> Cover: 1     | Tempo: 0,002 ms
+Run  7 -> Cover: 1     | Tempo: 0,001 ms
+Run  8 -> Cover: 1     | Tempo: 0,001 ms
+Run  9 -> Cover: 1     | Tempo: 0,003 ms
+Run 10 -> Cover: 1     | Tempo: 0,001 ms
+
+Resultados Consolidados:
+Maximal Matching     -> Cobertura Média:   2,00 [Mín:    2 | Máx:    2] | Tempo Médio:   0,002 ms
+Greedy Max-Degree    -> Cobertura Média:   1,00 [Mín:    1 | Máx:    1] | Tempo Médio:   0,004 ms
+
+>> Instância: Aleatório Esparso (V=10, E=20)
+==  Maximal Matching   ==
+Run  1 -> Cover: 8     | Tempo: 0,007 ms
+Run  2 -> Cover: 8     | Tempo: 0,004 ms
+Run  3 -> Cover: 8     | Tempo: 0,003 ms
+Run  4 -> Cover: 8     | Tempo: 0,003 ms
+Run  5 -> Cover: 6     | Tempo: 0,002 ms
+Run  6 -> Cover: 8     | Tempo: 0,042 ms
+Run  7 -> Cover: 6     | Tempo: 0,007 ms
+Run  8 -> Cover: 8     | Tempo: 0,002 ms
+Run  9 -> Cover: 10    | Tempo: 0,002 ms
+Run 10 -> Cover: 10    | Tempo: 0,003 ms
+==  Greedy Max-Degree   ==
+Run  1 -> Cover: 6     | Tempo: 0,016 ms
+Run  2 -> Cover: 6     | Tempo: 0,012 ms
+Run  3 -> Cover: 6     | Tempo: 0,013 ms
+Run  4 -> Cover: 6     | Tempo: 0,030 ms
+Run  5 -> Cover: 6     | Tempo: 0,024 ms
+Run  6 -> Cover: 6     | Tempo: 0,012 ms
+Run  7 -> Cover: 6     | Tempo: 0,011 ms
+Run  8 -> Cover: 6     | Tempo: 0,012 ms
+Run  9 -> Cover: 6     | Tempo: 0,011 ms
+Run 10 -> Cover: 6     | Tempo: 0,012 ms
+
+Resultados Consolidados:
+Maximal Matching     -> Cobertura Média:   8,00 [Mín:    6 | Máx:   10] | Tempo Médio:   0,007 ms
+Greedy Max-Degree    -> Cobertura Média:   6,00 [Mín:    6 | Máx:    6] | Tempo Médio:   0,015 ms
+
+>> Instância: Aleatório Denso (V=10, E=10)
+==  Maximal Matching   ==
+Run  1 -> Cover: 6     | Tempo: 0,004 ms
+Run  2 -> Cover: 4     | Tempo: 0,001 ms
+Run  3 -> Cover: 6     | Tempo: 0,002 ms
+Run  4 -> Cover: 6     | Tempo: 0,002 ms
+Run  5 -> Cover: 6     | Tempo: 0,003 ms
+Run  6 -> Cover: 6     | Tempo: 0,003 ms
+Run  7 -> Cover: 6     | Tempo: 0,001 ms
+Run  8 -> Cover: 6     | Tempo: 0,002 ms
+Run  9 -> Cover: 6     | Tempo: 0,001 ms
+Run 10 -> Cover: 8     | Tempo: 0,002 ms
+==  Greedy Max-Degree   ==
+Run  1 -> Cover: 4     | Tempo: 0,030 ms
+Run  2 -> Cover: 4     | Tempo: 0,002 ms
+Run  3 -> Cover: 4     | Tempo: 0,002 ms
+Run  4 -> Cover: 4     | Tempo: 0,003 ms
+Run  5 -> Cover: 4     | Tempo: 0,002 ms
+Run  6 -> Cover: 4     | Tempo: 0,002 ms
+Run  7 -> Cover: 4     | Tempo: 0,002 ms
+Run  8 -> Cover: 4     | Tempo: 0,002 ms
+Run  9 -> Cover: 4     | Tempo: 0,003 ms
+Run 10 -> Cover: 4     | Tempo: 0,003 ms
+
+Resultados Consolidados:
+Maximal Matching     -> Cobertura Média:   6,00 [Mín:    4 | Máx:    8] | Tempo Médio:   0,002 ms
+Greedy Max-Degree    -> Cobertura Média:   4,00 [Mín:    4 | Máx:    4] | Tempo Médio:   0,005 ms
+
+>> Instância: Aleatório Esparso (V=100, E=200)
+==  Maximal Matching   ==
+Run  1 -> Cover: 80    | Tempo: 0,023 ms
+Run  2 -> Cover: 78    | Tempo: 0,021 ms
+Run  3 -> Cover: 72    | Tempo: 0,023 ms
+Run  4 -> Cover: 76    | Tempo: 0,021 ms
+Run  5 -> Cover: 76    | Tempo: 0,024 ms
+Run  6 -> Cover: 76    | Tempo: 0,025 ms
+Run  7 -> Cover: 76    | Tempo: 0,022 ms
+Run  8 -> Cover: 74    | Tempo: 0,019 ms
+Run  9 -> Cover: 80    | Tempo: 0,015 ms
+Run 10 -> Cover: 72    | Tempo: 0,023 ms
+==  Greedy Max-Degree   ==
+Run  1 -> Cover: 51    | Tempo: 0,178 ms
+Run  2 -> Cover: 51    | Tempo: 0,395 ms
+Run  3 -> Cover: 51    | Tempo: 0,237 ms
+Run  4 -> Cover: 51    | Tempo: 0,377 ms
+Run  5 -> Cover: 51    | Tempo: 0,213 ms
+Run  6 -> Cover: 51    | Tempo: 0,333 ms
+Run  7 -> Cover: 51    | Tempo: 0,193 ms
+Run  8 -> Cover: 51    | Tempo: 0,146 ms
+Run  9 -> Cover: 51    | Tempo: 0,145 ms
+Run 10 -> Cover: 51    | Tempo: 0,159 ms
+
+Resultados Consolidados:
+Maximal Matching     -> Cobertura Média:  76,00 [Mín:   72 | Máx:   80] | Tempo Médio:   0,022 ms
+Greedy Max-Degree    -> Cobertura Média:  51,00 [Mín:   51 | Máx:   51] | Tempo Médio:   0,237 ms
+
+>> Instância: Aleatório Denso (V=100, E=1000)
+==  Maximal Matching   ==
+Run  1 -> Cover: 96    | Tempo: 0,057 ms
+Run  2 -> Cover: 96    | Tempo: 0,055 ms
+Run  3 -> Cover: 98    | Tempo: 0,052 ms
+Run  4 -> Cover: 98    | Tempo: 0,033 ms
+Run  5 -> Cover: 92    | Tempo: 0,030 ms
+Run  6 -> Cover: 96    | Tempo: 0,050 ms
+Run  7 -> Cover: 96    | Tempo: 0,031 ms
+Run  8 -> Cover: 94    | Tempo: 0,032 ms
+Run  9 -> Cover: 96    | Tempo: 0,051 ms
+Run 10 -> Cover: 94    | Tempo: 0,038 ms
+==  Greedy Max-Degree   ==
+Run  1 -> Cover: 84    | Tempo: 1,261 ms
+Run  2 -> Cover: 84    | Tempo: 1,341 ms
+Run  3 -> Cover: 84    | Tempo: 1,281 ms
+Run  4 -> Cover: 84    | Tempo: 1,400 ms
+Run  5 -> Cover: 84    | Tempo: 1,309 ms
+Run  6 -> Cover: 84    | Tempo: 1,253 ms
+Run  7 -> Cover: 84    | Tempo: 1,247 ms
+Run  8 -> Cover: 84    | Tempo: 1,325 ms
+Run  9 -> Cover: 84    | Tempo: 1,310 ms
+Run 10 -> Cover: 84    | Tempo: 1,211 ms
+
+Resultados Consolidados:
+Maximal Matching     -> Cobertura Média:  95,60 [Mín:   92 | Máx:   98] | Tempo Médio:   0,043 ms
+Greedy Max-Degree    -> Cobertura Média:  84,00 [Mín:   84 | Máx:   84] | Tempo Médio:   1,294 ms
+
+>> Instância: Aleatório Esparso (V=123, E=246)
+==  Maximal Matching   ==
+Run  1 -> Cover: 98    | Tempo: 0,034 ms
+Run  2 -> Cover: 102   | Tempo: 0,017 ms
+Run  3 -> Cover: 98    | Tempo: 0,011 ms
+Run  4 -> Cover: 102   | Tempo: 0,011 ms
+Run  5 -> Cover: 96    | Tempo: 0,009 ms
+Run  6 -> Cover: 92    | Tempo: 0,013 ms
+Run  7 -> Cover: 96    | Tempo: 0,022 ms
+Run  8 -> Cover: 96    | Tempo: 0,010 ms
+Run  9 -> Cover: 98    | Tempo: 0,027 ms
+Run 10 -> Cover: 98    | Tempo: 0,010 ms
+==  Greedy Max-Degree   ==
+Run  1 -> Cover: 68    | Tempo: 0,236 ms
+Run  2 -> Cover: 68    | Tempo: 0,227 ms
+Run  3 -> Cover: 68    | Tempo: 0,209 ms
+Run  4 -> Cover: 68    | Tempo: 0,238 ms
+Run  5 -> Cover: 68    | Tempo: 0,224 ms
+Run  6 -> Cover: 68    | Tempo: 0,264 ms
+Run  7 -> Cover: 68    | Tempo: 0,207 ms
+Run  8 -> Cover: 68    | Tempo: 0,203 ms
+Run  9 -> Cover: 68    | Tempo: 0,232 ms
+Run 10 -> Cover: 68    | Tempo: 0,243 ms
+
+Resultados Consolidados:
+Maximal Matching     -> Cobertura Média:  97,60 [Mín:   92 | Máx:  102] | Tempo Médio:   0,016 ms
+Greedy Max-Degree    -> Cobertura Média:  68,00 [Mín:   68 | Máx:   68] | Tempo Médio:   0,228 ms
+
+>> Instância: Aleatório Denso (V=123, E=1512)
+==  Maximal Matching   ==
+Run  1 -> Cover: 118   | Tempo: 0,057 ms
+Run  2 -> Cover: 118   | Tempo: 0,032 ms
+Run  3 -> Cover: 114   | Tempo: 0,025 ms
+Run  4 -> Cover: 118   | Tempo: 0,037 ms
+Run  5 -> Cover: 120   | Tempo: 0,035 ms
+Run  6 -> Cover: 120   | Tempo: 0,030 ms
+Run  7 -> Cover: 118   | Tempo: 0,036 ms
+Run  8 -> Cover: 120   | Tempo: 0,035 ms
+Run  9 -> Cover: 118   | Tempo: 0,043 ms
+Run 10 -> Cover: 116   | Tempo: 0,047 ms
+==  Greedy Max-Degree   ==
+Run  1 -> Cover: 105   | Tempo: 0,214 ms
+Run  2 -> Cover: 105   | Tempo: 0,177 ms
+Run  3 -> Cover: 105   | Tempo: 0,170 ms
+Run  4 -> Cover: 105   | Tempo: 0,169 ms
+Run  5 -> Cover: 105   | Tempo: 0,172 ms
+Run  6 -> Cover: 105   | Tempo: 0,163 ms
+Run  7 -> Cover: 105   | Tempo: 0,162 ms
+Run  8 -> Cover: 105   | Tempo: 0,162 ms
+Run  9 -> Cover: 105   | Tempo: 0,170 ms
+Run 10 -> Cover: 105   | Tempo: 0,177 ms
+
+Resultados Consolidados:
+Maximal Matching     -> Cobertura Média: 118,00 [Mín:  114 | Máx:  120] | Tempo Médio:   0,038 ms
+Greedy Max-Degree    -> Cobertura Média: 105,00 [Mín:  105 | Máx:  105] | Tempo Médio:   0,174 ms
+
+>> Instância: Aleatório Esparso (V=1000, E=2000)
+==  Maximal Matching   ==
+Run  1 -> Cover: 814   | Tempo: 0,222 ms
+Run  2 -> Cover: 822   | Tempo: 0,199 ms
+Run  3 -> Cover: 814   | Tempo: 0,210 ms
+Run  4 -> Cover: 804   | Tempo: 0,189 ms
+Run  5 -> Cover: 812   | Tempo: 0,187 ms
+Run  6 -> Cover: 812   | Tempo: 0,173 ms
+Run  7 -> Cover: 800   | Tempo: 0,235 ms
+Run  8 -> Cover: 812   | Tempo: 0,195 ms
+Run  9 -> Cover: 804   | Tempo: 0,174 ms
+Run 10 -> Cover: 790   | Tempo: 0,186 ms
+==  Greedy Max-Degree   ==
+Run  1 -> Cover: 551   | Tempo: 1,425 ms
+Run  2 -> Cover: 551   | Tempo: 1,392 ms
+Run  3 -> Cover: 551   | Tempo: 1,381 ms
+Run  4 -> Cover: 551   | Tempo: 1,391 ms
+Run  5 -> Cover: 551   | Tempo: 1,370 ms
+Run  6 -> Cover: 551   | Tempo: 1,432 ms
+Run  7 -> Cover: 551   | Tempo: 1,394 ms
+Run  8 -> Cover: 551   | Tempo: 1,389 ms
+Run  9 -> Cover: 551   | Tempo: 1,373 ms
+Run 10 -> Cover: 551   | Tempo: 1,392 ms
+
+Resultados Consolidados:
+Maximal Matching     -> Cobertura Média: 808,40 [Mín:  790 | Máx:  822] | Tempo Médio:   0,197 ms
+Greedy Max-Degree    -> Cobertura Média: 551,00 [Mín:  551 | Máx:  551] | Tempo Médio:   1,394 ms
+
+>> Instância: Aleatório Denso (V=1000, E=100000)
+==  Maximal Matching   ==
+Run  1 -> Cover: 996   | Tempo: 6,662 ms
+Run  2 -> Cover: 996   | Tempo: 6,074 ms
+Run  3 -> Cover: 996   | Tempo: 5,732 ms
+Run  4 -> Cover: 996   | Tempo: 6,480 ms
+Run  5 -> Cover: 994   | Tempo: 6,712 ms
+Run  6 -> Cover: 998   | Tempo: 7,346 ms
+Run  7 -> Cover: 994   | Tempo: 7,418 ms
+Run  8 -> Cover: 994   | Tempo: 7,700 ms
+Run  9 -> Cover: 996   | Tempo: 9,320 ms
+Run 10 -> Cover: 996   | Tempo: 8,374 ms
+==  Greedy Max-Degree   ==
+Run  1 -> Cover: 974   | Tempo: 316,088 ms
+Run  2 -> Cover: 974   | Tempo: 262,282 ms
+Run  3 -> Cover: 974   | Tempo: 259,432 ms
+Run  4 -> Cover: 974   | Tempo: 275,881 ms
+Run  5 -> Cover: 974   | Tempo: 257,728 ms
+Run  6 -> Cover: 974   | Tempo: 258,088 ms
+Run  7 -> Cover: 974   | Tempo: 257,216 ms
+Run  8 -> Cover: 974   | Tempo: 292,710 ms
+Run  9 -> Cover: 974   | Tempo: 271,357 ms
+Run 10 -> Cover: 974   | Tempo: 258,658 ms
+
+Resultados Consolidados:
+Maximal Matching     -> Cobertura Média: 995,60 [Mín:  994 | Máx:  998] | Tempo Médio:   7,182 ms
+Greedy Max-Degree    -> Cobertura Média: 974,00 [Mín:  974 | Máx:  974] | Tempo Médio: 270,944 ms
+
+>> Instância: Aleatório Esparso (V=5000, E=10000)
+==  Maximal Matching   ==
+Run  1 -> Cover: 3982  | Tempo: 1,258 ms
+Run  2 -> Cover: 3976  | Tempo: 1,074 ms
+Run  3 -> Cover: 3978  | Tempo: 1,142 ms
+Run  4 -> Cover: 3986  | Tempo: 1,179 ms
+Run  5 -> Cover: 4020  | Tempo: 1,144 ms
+Run  6 -> Cover: 4000  | Tempo: 1,024 ms
+Run  7 -> Cover: 3988  | Tempo: 1,018 ms
+Run  8 -> Cover: 4024  | Tempo: 0,980 ms
+Run  9 -> Cover: 4008  | Tempo: 0,994 ms
+Run 10 -> Cover: 4000  | Tempo: 0,869 ms
+==  Greedy Max-Degree   ==
+Run  1 -> Cover: 2750  | Tempo: 35,351 ms
+Run  2 -> Cover: 2750  | Tempo: 37,029 ms
+Run  3 -> Cover: 2750  | Tempo: 36,791 ms
+Run  4 -> Cover: 2750  | Tempo: 36,782 ms
+Run  5 -> Cover: 2750  | Tempo: 36,702 ms
+Run  6 -> Cover: 2750  | Tempo: 37,942 ms
+Run  7 -> Cover: 2750  | Tempo: 38,401 ms
+Run  8 -> Cover: 2750  | Tempo: 39,510 ms
+Run  9 -> Cover: 2750  | Tempo: 38,225 ms
+Run 10 -> Cover: 2750  | Tempo: 37,747 ms
+
+Resultados Consolidados:
+Maximal Matching     -> Cobertura Média: 3996,20 [Mín: 3976 | Máx: 4024] | Tempo Médio:   1,068 ms
+Greedy Max-Degree    -> Cobertura Média: 2750,00 [Mín: 2750 | Máx: 2750] | Tempo Médio:  37,448 ms
+
+================================================================================
+                            FIM DOS TESTES EXPERIMENTAIS                        
+================================================================================
+
+Process finished with exit code 0
